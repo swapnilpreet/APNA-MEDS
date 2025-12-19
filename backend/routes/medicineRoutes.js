@@ -9,13 +9,13 @@ import {
 } from "../controllers/medicineController.js";
 import { protect, admin } from "../middlewares/authMiddleware.js";
 import upload from "../middlewares/multer.js";
-import { userLimiter } from "../middlewares/rateLimiter.js";
+// import { userLimiter } from "../middlewares/rateLimiter.js";
 
 const router = express.Router();
 
 router
   .route("/")
-  .get(protect,userLimiter,getMedicine)
+  .get(protect,getMedicine)
   .post(protect,admin,upload.single("image"), createMedicine); // Admin can create Medicine
 
 router.route("/:id/reviews").post(protect, createMedicineReview); // Users can review Medicine
