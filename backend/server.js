@@ -48,7 +48,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/patient', patientRoutes); //done
 app.use('/api/recommendations', recommendationRoutes);
 
-app.get('/home', (req, res) => {
+app.get('/', (req, res) => {
   res.send('API is running...');
 });
 
