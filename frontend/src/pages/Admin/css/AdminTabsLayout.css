@@ -1,0 +1,114 @@
+.admin-wrapper {
+  padding: 2rem;
+  background: linear-gradient(135deg, #eef2f3 0%, #dfe9f3 100%);
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.admin-title {
+  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  text-align: center;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.admin-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.admin-tab {
+  padding: 0.7rem 1.6rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(135deg, #007bff, #00aaff);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.admin-tab:hover {
+  background: linear-gradient(135deg, #0066cc, #0099ff);
+  box-shadow: 0 6px 16px rgba(0, 123, 255, 0.35);
+  transform: translateY(-3px);
+}
+
+.admin-tab.active {
+  background: linear-gradient(135deg, #003d80, #0056b3);
+  box-shadow: 0 0 15px rgba(0, 85, 204, 0.5);
+}
+.admin-tab::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75px;
+  width: 50px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-20deg);
+  transition: 0.5s;
+}
+
+.admin-tab:hover::before {
+  left: 120%;
+}
+@media (max-width: 1024px) {
+  .admin-wrapper {
+    padding: 1.5rem;
+  }
+
+  .admin-title {
+    font-size: 1.9rem;
+  }
+
+  .admin-tab {
+    font-size: 0.95rem;
+    padding: 0.65rem 1.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-tabs {
+    flex-direction: column;
+    align-items: stretch;
+    width: 90%;
+  }
+
+  .admin-tab {
+    text-align: center;
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-title {
+    font-size: 1.6rem;
+  }
+
+  .admin-tab {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+    border-radius: 8px;
+  }
+}

@@ -1,0 +1,59 @@
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 1rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.filter-input,
+.filter-select {
+  padding: 10px 12px;
+  font-size: 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  width: 200px;
+  transition: all 0.3s ease;
+}
+.filter-input:focus,
+.filter-select:focus {
+  border-color: #007bff; 
+  outline: none;
+  box-shadow: 0 0 5px rgba(14,116,144,0.3);
+}
+.apply-button {
+  padding: 10px 18px;
+  font-size: 15px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.apply-button:hover {
+  background-color: #036ee0;
+  transform: translateY(-1px);
+}
+.apply-button:active {
+  transform: scale(0.97);
+}
+@media (max-width: 768px) {
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-input,
+  .filter-select {
+    width: 100%;
+  }
+
+  .apply-button {
+    width: 100%;
+  }
+}
