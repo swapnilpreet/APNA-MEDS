@@ -19,15 +19,25 @@ const app = express();
 app.use(express.json()); 
 
 
-const corsOptions = {
-  origin: 'http://localhost:5173',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-  optionsSuccessStatus: 200
-};
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",          // local
+      "https://apna-meds.vercel.app"    // production frontend
+    ],
+    credentials: true
+  })
+);
 
-app.use(cors(corsOptions));
+// Serverless-safe DB connect
+let isDbConnected = false;
+app.use(async (req, res, next) => {
+  if (!isDbConnected) {
+    await connectDB();
+    isDbConnected = true;
+  }
+  next();
+});
 
 
 // Routes
@@ -38,7 +48,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/patient', patientRoutes); //done
 app.use('/api/recommendations', recommendationRoutes);
 
-app.get('/', (req, res) => {
+app.get('/home', (req, res) => {
   res.send('API is running...');
 });
 
@@ -48,7 +58,10 @@ app.use(errorHandler);
 
 // const PORT = process.env.PORT || 5000;
 
-app.listen(3000, async() => {
-  await connectDB();
-  console.log(`Server running is running on port ${3000}`);
-});
+// app.listen(3000, async() => {
+//   await connectDB();
+//   console.log(`Server running is running on port ${3000}`);
+// });
+
+
+export default app;
