@@ -11,15 +11,20 @@ import Cart from "./Cart/Cart";
 import MyOrder from "./MyOrder/MyOrder";
 import Address from "./Profile/Address";
 import Patients from "./Profile/Patients";
-import StatsTabs from "./Admin/StatsTabs";
+// import StatsTabs from "./Admin/StatsTabs";
 // import UserTabs from "./Admin/UserTabs";
-import MedicinesTabs from "./Admin/MedicinesTabs";
-import OrderTabs from "./Admin/OrderTabs";
-import AdminTabsLayout from "./Admin/AdminTabsLayout";
+// import MedicinesTabs from "./Admin/MedicinesTabs";
+// import OrderTabs from "./Admin/OrderTabs";
+// import AdminTabsLayout from "./Admin/AdminTabsLayout";
 import "react-toastify/dist/ReactToastify.css";
 import AIsuggestion from "./AI/AIsuggestion";
 import VerifyEmail from "../components/common/VerifyEmail";
-import UserTabs from "./Admin/userTabs";
+// import UserTabs from "./Admin/UserTabs";
+import Usertab from "./Admin/Usertab";
+import Starstab from "./Admin/Starstab";
+import Ordertab from "./Admin/Ordertab";
+import Medicinetabs from "./Admin/Medicinetabs";
+import Admintablayout from "./Admin/Admintablayout";
 
 const AllRoutes = () => {
   return (
@@ -97,7 +102,7 @@ const AllRoutes = () => {
           element={
             <ProtectedPage>
               <AdminProtected>
-                <AdminTabsLayout />
+                <Admintablayout />
               </AdminProtected>
             </ProtectedPage>
           }
@@ -107,7 +112,7 @@ const AllRoutes = () => {
             element={
               <ProtectedPage>
                 <AdminProtected>
-                  <OrderTabs />
+                  <Ordertab />
                 </AdminProtected>
               </ProtectedPage>
             }
@@ -117,7 +122,7 @@ const AllRoutes = () => {
             element={
               <ProtectedPage>
                 <AdminProtected>
-                  <MedicinesTabs />
+                  <Medicinetabs />
                 </AdminProtected>
               </ProtectedPage>
             }
@@ -127,7 +132,7 @@ const AllRoutes = () => {
             element={
               <ProtectedPage>
                 <AdminProtected>
-                  <UserTabs />
+                  <Usertab />
                 </AdminProtected>
               </ProtectedPage>
             }
@@ -137,7 +142,7 @@ const AllRoutes = () => {
             element={
               <ProtectedPage>
                 <AdminProtected>
-                  <StatsTabs />
+                  <Starstab />
                 </AdminProtected>
               </ProtectedPage>
             }
