@@ -13,7 +13,7 @@ import {
   editMedicalHistory,
   deleteMedicalHistory,
   getMedicalHistory,
-  AddOrUpdateImage,
+  // AddOrUpdateImage,
 } from '../controllers/userController.js';
 import { protect, admin } from '../middlewares/authMiddleware.js';
 import upload from '../middlewares/multer.js';
@@ -34,17 +34,17 @@ router.route('/clear-cart')
   
 router.route('/medical-history')
   .get(protect, getMedicalHistory) // user can get medical history
-  .post(protect, addmedicalhistory); // user can add ,edical history
+  .post(protect,upload.single("image"), addmedicalhistory); // user can add ,edical history
 
 router.route('/profile')
   .get(protect, getUserProfile) // Users can get their own profile
-  .put(protect, updateUserProfile); // Users can update their own profile
+  .put(protect,upload.single("image"), updateUserProfile); // Users can update their own profile
 
-router.route("/profile-picture")
-  .put(protect, upload.single("image"), AddOrUpdateImage);
+// router.route("/profile-picture")
+//   .put(protect, upload.single("image"), AddOrUpdateImage);
 
 router.route('/medical-history/:id')
-  .put(protect, editMedicalHistory) // Users can update their medical history by ID
+  .put(protect, upload.single("image"),editMedicalHistory) // Users can update their medical history by ID
   .delete(protect, deleteMedicalHistory); // Users can delete their medical history by ID
 
 router.route('/:id')

@@ -12,13 +12,14 @@ import MyOrder from "./MyOrder/MyOrder";
 import Address from "./Profile/Address";
 import Patients from "./Profile/Patients";
 import StatsTabs from "./Admin/StatsTabs";
-import UserTabs from "./Admin/userTabs";
+// import UserTabs from "./Admin/UserTabs";
 import MedicinesTabs from "./Admin/MedicinesTabs";
 import OrderTabs from "./Admin/OrderTabs";
 import AdminTabsLayout from "./Admin/AdminTabsLayout";
 import "react-toastify/dist/ReactToastify.css";
 import AIsuggestion from "./AI/AIsuggestion";
 import VerifyEmail from "../components/common/VerifyEmail";
+import UserTabs from "./Admin/userTabs";
 
 const AllRoutes = () => {
   return (

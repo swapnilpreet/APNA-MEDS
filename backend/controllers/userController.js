@@ -41,36 +41,59 @@ const getUserProfile = async (req, res) => {
 const updateUserProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user._id);
+
     if (!user) {
       return res.status(404).json({ message: "User not Found" });
     }
+
+    // -------- TEXT FIELDS --------
     user.name = req.body.name || user.name;
-    user.email = req.body.email || user.email;
+    // user.email = req.body.email || user.email;
     user.contactNumber = req.body.contactNumber || user.contactNumber;
-    user.profilePicture = req.body.profilePicture || user.profilePicture;
-    if (req.body.medicalHistory) {
-      user.medicalHistory = req.body.medicalHistory;
-    }
-    if (req.body.managePatients) {
-      user.managePatients = req.body.managePatients;
-    }
-    if (req.body.manageAddress) {
-      user.manageAddress = req.body.manageAddress;
+
+    // if (req.body.medicalHistory) {
+    //   user.medicalHistory = req.body.medicalHistory;
+    // }
+
+    // if (req.body.managePatients) {
+    //   user.managePatients = req.body.managePatients;
+    // }
+
+    // if (req.body.manageAddress) {
+    //   user.manageAddress = req.body.manageAddress;
+    // }
+
+    // -------- IMAGE UPLOAD --------
+    if (req.file) {
+      // delete old image
+      if (user.profilePicture?.publicId) {
+        await cloudinary.uploader.destroy(user.profilePicture.publicId);
+      }
+
+      // upload new image
+      const result = await cloudinary.uploader.upload(req.file.path, {
+        folder: "Apna-med-User-profile-pic",
+        resource_type: "image",
+      });
+
+      user.profilePicture = {
+        url: result.secure_url,
+        publicId: result.public_id,
+      };
     }
 
-    // const updatedUser = await user.save();
     await user.save();
-    // name: updatedUser.name,
-    //   email: updatedUser.email,
-    //   contactNumber: updatedUser.contactNumber,
-    //   profilePicture: updatedUser.profilePicture,
-    //   token: generateToken(updatedUser._id),
-    //   medicalHistory: updatedUser.medicalHistory,
-    //   managePatients: updatedUser.managePatients,
-    //   manageAddress: updatedUser.manageAddress,
-    res.status(200).json({ success: true, message: "User profile Updated" });
+
+    res.status(200).json({
+      success: true,
+      message: "User profile updated successfully",
+      user,
+    });
   } catch (error) {
-    res.status(500).json({ success: false, message: error });
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
   }
 };
 
@@ -318,47 +341,47 @@ const updateUser = async (req, res) => {
   }
 };
 
-const AddOrUpdateImage=async(req,res)=>{
-  try {
-     const userId=req.user?._id;
-     if(!req.file){
-      return res.status(400).json({message:"No Image uploaded"})
-     }
+// const AddOrUpdateImage=async(req,res)=>{
+//   try{
+//      const userId=req.user?._id;
+//      if(!req.file){
+//       return res.status(400).json({message:"No Image uploaded"})
+//      }
      
-     const user= await User.findById(userId);
+//      const user= await User.findById(userId);
 
-     if(!user){
-      return res.status(404).json({message:"User not found"})
-     }
+//      if(!user){
+//       return res.status(404).json({message:"User not found"})
+//      }
 
-     if(user.profilePicture?.publicId){
-      await cloudinary.uploader.destroy(user.profilePicture.publicId);
-     }
+//      if(user.profilePicture?.publicId){
+//       await cloudinary.uploader.destroy(user.profilePicture.publicId);
+//      }
 
-     const result =await cloudinary.uploader.upload(req.file.path,{
-      folder:"Apna-med-User-profile-pic",
-      resource_type:"image",
-     })
+//      const result =await cloudinary.uploader.upload(req.file.path,{
+//       folder:"Apna-med-User-profile-pic",
+//       resource_type:"image",
+//      })
 
-     user.profilePicture={
-      url:result.secure_url,
-      publicId:result.public_id,
-     }
+//      user.profilePicture={
+//       url:result.secure_url,
+//       publicId:result.public_id,
+//      }
 
-     await user.save();
+//      await user.save();
 
-     res.status(200).json({
-      success:true,
-      message:"Profile image Uploaded Successfully",
-      profilePicture:user.profilePicture.url,
-     })
-  } catch (error) {
-    res.status(500).json({
-      success:false,
-      message:error.message,
-    })
-  }
-}
+//      res.status(200).json({
+//       success:true,
+//       message:"Profile image Uploaded Successfully",
+//       profilePicture:user.profilePicture.url,
+//      })
+//   } catch (error) {
+//     res.status(500).json({
+//       success:false,
+//       message:error.message,
+//     })
+//   }
+// }
 
 const toggleCartItem = async (req, res) => {
   try {
@@ -443,7 +466,7 @@ export {
   deleteUser,
   getUserById,
   updateUser,
-  AddOrUpdateImage,
+  // AddOrUpdateImage,
   addmedicalhistory,
   toggleCartItem,
   GetmyCartItem,

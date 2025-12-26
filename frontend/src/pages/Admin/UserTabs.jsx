@@ -32,12 +32,12 @@ const UserTabs = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.delete(`${BASE_URL}/api/users/${id}`, {
-        headers:{Authorization:`Bearer ${token}`},
-        withCredentials:true,
+        headers: { Authorization: `Bearer ${token}` },
+        withCredentials: true,
       });
       toast.success(response?.data?.message);
       handleGetAllUsers();
-    } catch(error){
+    } catch (error) {
       toast.error(error.response?.data?.message || "Delete failed");
     }
   };
