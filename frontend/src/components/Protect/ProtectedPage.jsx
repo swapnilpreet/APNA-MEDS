@@ -14,16 +14,18 @@ const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    if (!token){
-      window.location.href = "/login";
+    if (!token) {
+      // window.location.href = "/login";
+      navigate("/login");
       return;
     }
     try {
       const decoded = jwtDecode(token);
       if (decoded.exp * 1000 < Date.now()) {
-        console.log("expire-token")
+        console.log("expire-token");
         localStorage.removeItem("token");
-        window.location.href = "/login";
+        // window.location.href = "/login";
+        navigate("/login");
         return;
       }
       const validateToken = async () => {
@@ -42,21 +44,24 @@ const ProtectedRoute = ({ children }) => {
             setIsAuthenticated(true);
           } else {
             localStorage.removeItem("token");
-            window.location.href = "/login";
+            // window.location.href = "/login";
+            navigate("/login");
           }
           dispatch(SetLoader(false));
         } catch (err) {
           console.log(err);
           dispatch(SetLoader(false));
           localStorage.removeItem("token");
-          window.location.href = "/login";
+          // window.location.href = "/login";
+          navigate("/login");
         }
       };
       validateToken();
     } catch (error) {
       console.log(error);
       localStorage.removeItem("token");
-      window.location.href = "/login";
+      // window.location.href = "/login";
+      navigate("/login");
     }
   }, [token, navigate]);
 
