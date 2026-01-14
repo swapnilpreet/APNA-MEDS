@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { SetLoader } from "../../redux/LoadingSlice";
 import { SetUser } from "../../redux/userSlice";
 import axios from "axios";
+import Login from "../../pages/User/Login";
 
 const ProtectedRoute = ({ children }) => {
   const dispatch = useDispatch();
@@ -59,7 +60,7 @@ const ProtectedRoute = ({ children }) => {
     }
   }, [token, navigate]);
 
-  return isAuthenticated ? children : null;
+  return isAuthenticated ? children : <Login/>;
 };
 
 export default ProtectedRoute;
