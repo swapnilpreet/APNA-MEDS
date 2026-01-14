@@ -26,7 +26,7 @@ const MedicineCard = ({
   const handleAddToCart = async ({ medicineId }) => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/users/cart",
+        `${import.meta.env.VITE_BASEURL}/api/users/cart`,
         { medicineId },
         {
           headers: {
