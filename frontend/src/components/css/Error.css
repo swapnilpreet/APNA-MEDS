@@ -1,0 +1,64 @@
+.error{
+  border: 1px solid red;
+  text-align: center;
+  padding: 20px;
+  min-width: 60%;
+  max-width: 80%;
+  height: fit-content;
+  margin: 20px auto;
+  border-radius: 10px;
+  background-color: #fff5f5;
+}
+.icon{
+  color: red;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.error>h1 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+.error>button{
+  color: white;
+  margin: 16px;
+  width: 30%;
+  min-width: 120px;
+  background: #0052cc;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.error > button:hover {
+  background: #003d99;
+}
+@media (max-width: 768px) {
+  .error {
+    max-width: 90%;
+    padding: 16px;
+  }
+  .error > h1 {
+    font-size: 1.5rem;
+  }
+  .error > button {
+    width: 40%;
+    font-size: 14px;
+  }
+}
+@media (max-width: 480px) {
+  .error > h1 {
+    font-size: 1.2rem;
+  }
+  .error > button {
+    width: 80%;
+    margin: 12px auto;
+    display: block;
+    font-size: 14px;
+    padding: 8px;
+  }
+  .icon {
+    font-size: 1.5rem;
+  }
+}

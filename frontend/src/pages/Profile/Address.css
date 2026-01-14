@@ -1,0 +1,250 @@
+
+.address-container {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.address-container h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+}
+
+.add-btn {
+  display: block;
+  margin: 0 auto 2rem auto;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #0a74da, #0056b3);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 9px rgba(2, 77, 143, 0.3);
+}
+
+.add-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #0056b3, #0a74da);
+}
+
+.address-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.address-card{
+  background: #fff;
+  border: 1px solid #e0e6ed;
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  width: 280px;
+}
+.address-box{
+  height: 150px;
+  width: auto;
+}
+.address-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.address-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 0.4rem;
+}
+
+.address-card p {
+  color: #555;
+  font-size: 0.95rem;
+  margin: 0.2rem 0;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.address-btn {
+  margin: 0 auto 2rem auto;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #0a74da, #0056b3);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 9px rgba(2, 77, 143, 0.3);
+}
+
+.address-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #0056b3, #0a74da);
+}
+
+.address-btn.delete {
+  background: linear-gradient(90deg, #e45d5d, #dc2626);
+}
+
+.address-btn.delete:hover {
+  background: linear-gradient(90deg, #b32525, #df2727);
+}
+
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+ 
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 95%;
+  max-width: 420px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  animation: popIn 0.3s ease;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-content h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #222;
+  font-size: 1.4rem;
+}
+ 
+.modal-content input {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0 1rem;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+}
+
+.modal-content input:focus {
+  border-color: #0a74da;
+  box-shadow: 0 0 5px rgba(10, 116, 218, 0.4);
+  outline: none;
+}
+ 
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.modal-actions button {
+  flex: 1;
+  margin: 0 4px;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.modal-actions button:first-child {
+  background-color: #0a74da;
+  color: #fff;
+}
+
+.modal-actions button:first-child:hover {
+  background-color: #004b9b;
+}
+
+.modal-actions button:last-child {
+  background-color: #ddd;
+  color: #222;
+}
+
+.modal-actions button:last-child:hover {
+  background-color: #bbb;
+}
+
+@media (max-width: 768px) {
+  .address-container {
+    padding: 1.5rem;
+  }
+  .address-container h1 {
+    font-size: 1.6rem;
+  }
+  .add-btn {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+  .address-card {
+    padding: 1rem;
+  }
+  .modal-content {
+    width: 90%;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .address-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .address-card{
+    width: 100%;
+    /* border: 1px solid red; */
+  }
+  .address-card h3 {
+    font-size: 1rem;
+  }
+  .address-card p {
+    font-size: 0.9rem;
+  }
+  .modal-content {
+    padding: 1rem;
+  }
+  .modal-actions {
+    flex-direction: column;
+  }
+  .modal-actions button {
+    width: 100%;
+    margin: 5px 0;
+  }
+}

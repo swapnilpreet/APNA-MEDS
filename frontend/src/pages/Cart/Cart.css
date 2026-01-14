@@ -1,0 +1,270 @@
+.cart-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  background: #f9f9f9;
+  font-family: "Segoe UI", sans-serif;
+  min-height: 100vh;
+}
+
+.cart-left {
+  flex: 2;
+  min-width: 320px;
+}
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0px 10px;
+}
+
+.cart-header button{
+  padding: 8px 12px;
+  background: linear-gradient(135deg, #da3b0a, #b30000);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 9px rgba(143, 23, 2, 0.3);
+}
+.cart-header button:hover {
+   transform: translateY(-2px);
+  background: linear-gradient(135deg, #b31500, #da290a);
+}
+.cart-right {
+  flex: 1;
+  min-width: 280px;
+  position: sticky;
+  top: 10px;
+  align-self: flex-start;
+}
+
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  position: relative;
+  gap: 16px;
+}
+
+.item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item-image {
+  width: 70px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.item-info h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.item-info p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.price-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.mrp {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 14px;
+}
+
+.discount {
+  background: #e6f4ea;
+  color: #00a859;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 10px;
+  min-width: 70px;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.actions svg {
+  color: #d11518;
+  cursor: pointer;
+}
+.actions svg:hover {
+  color: #b90508;
+}
+
+.qty-select {
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 60px;
+  background: #fff;
+  font-size: 14px;
+}
+
+.free-delivery {
+  background: #e6f4ea;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.coupon-area {
+  background: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  gap: 10px;
+  font-weight: 500;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+.coupon-box {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.coupon-box input {
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.coupon-box button {
+  padding: 8px 14px;
+  background-color: #0066ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.coupon-box button:hover {
+  background-color: #0052cc;
+}
+
+.applied-coupon {
+  background: #e6f7e6;
+  color: #1a861a;
+  border: 1px solid #1a861a;
+  border-radius: 6px;
+  padding: 8px;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.bill {
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+.bill h4 {
+  margin-bottom: 12px;
+}
+
+.bill-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.bill-row.green {
+  color: #00a859;
+}
+
+.bill-total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-top: 12px;
+  font-size: 16px;
+}
+
+.tax-note {
+  font-size: 12px;
+  color: #888;
+  margin-top: 8px;
+}
+
+.primary-btn {
+  margin: 10px auto 0 auto;
+  width: 100%;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #0a74da, #0056b3);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 9px rgba(2, 77, 143, 0.3);
+}
+
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #0056b3, #0a74da);
+}
+
+
+@media (max-width: 768px) {
+  .cart-container {
+    flex-direction: column;
+  }
+  .cart-right {
+    position: relative;
+    top: unset;
+  }
+  .actions {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 10px;
+  }
+  .cart-right{
+    width: 100%;
+  }
+}

@@ -1,0 +1,176 @@
+.search-section {
+  position: relative;
+  background-color: #f0f8ff;
+  padding: 4rem 1rem;
+  text-align: center;
+  overflow: visible;
+  z-index: 1;
+}
+
+.search-section h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.search-section p {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #666;
+}
+
+.search-bar {
+  margin-top: 2rem;
+  background: white;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  max-width: 700px;
+  margin-inline: auto;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  gap: 1rem;
+  z-index: 5;
+  position: relative;
+}
+.location-select {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #007bff;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.pincode-input-wrapper {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem;
+  z-index: 10;
+}
+.pincode-input {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 0.9rem;
+  width: 280px;
+}
+
+.pincode-input:focus {
+  border-color: #007bff;
+}
+
+.divider {
+  height: 30px;
+  width: 1px;
+  background: #ccc;
+}
+.search-input-wrapper {
+  position: relative;
+  flex: 1;
+}
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  color: #333;
+  width: 100%;
+}
+/* suggestions-dropdown */
+.search-input::placeholder {
+  color: #999;
+}
+.suggestions-dropdown {
+  width: 100%;
+  border: 1px solid #ddd;
+  padding: 10px 0px;
+  text-align: left;
+  position: absolute;
+  background: white;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  list-style: none;
+}
+.suggestions-dropdown li {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+  
+}
+.suggestions-dropdown li:hover {
+  background-color: #f3f3f3;
+}
+.search-button {
+  background: linear-gradient(135deg, #0a74da, #0056b3);
+  border: none;
+  color: white;
+  padding: 0.6rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 9px rgba(2, 77, 143, 0.3);
+}
+.background-icon {
+  position: absolute;
+  background-image: url("https://img.icons8.com/ios-filled/100/000000/pill.png");
+  background-repeat: repeat-x;
+  background-size: 100px;
+  opacity: 0.08;
+  width: 200px;
+  height: 100px;
+  z-index: 0;
+}
+.background-icon.left {
+  top: 20px;
+  left: 10px;
+}
+.background-icon.right {
+  bottom: 10px;
+  right: 30px;
+}
+@media (max-width: 768px) {
+  .search-bar {
+    flex-direction: column;
+    gap: 0.5rem;
+    border-radius: 20px;
+    padding: 1rem;
+  }
+  .divider {
+    display: none;
+  }
+  .location-select {
+    justify-content: center;
+  }
+  .search-input-wrapper {
+    width: 100%;
+    font-size: large;
+  }
+  .search-button {
+    width: 100%;
+  }
+  .pincode-input {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 0.9rem;
+    width: 100%;
+  }
+  .pincode-input-wrapper {
+    width: 100%;
+  }
+}

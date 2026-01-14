@@ -1,0 +1,68 @@
+.user-content {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.user-table th,
+.user-table td {
+  border: 1px solid #ddd;
+  padding: 0.8rem;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.user-input {
+  padding: 0.6rem;
+  margin-top: 0.5rem;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.user-button {
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  margin-top: 0.5rem;
+  border-radius: 6px;
+  width: fit-content;
+  transition: opacity 0.2s ease;
+}
+
+.user-button.delete {
+  background-color: #dc3545;
+}
+
+.user-button.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .user-table th,
+  .user-table td {
+    font-size: 0.9rem;
+  }
+
+  .user-button {
+    width: 100%;
+  }
+}

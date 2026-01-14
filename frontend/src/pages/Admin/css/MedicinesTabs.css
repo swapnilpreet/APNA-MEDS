@@ -1,0 +1,199 @@
+
+.medicines-content{
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  max-width: 100%;
+  min-width: 60%;
+}
+
+.medicines-content h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1f2937;
+  text-align: center;
+}
+
+/* ===== Form Styling ===== */
+.medicine-form {
+  max-width: 700px;
+  margin: 2rem auto;
+  background: #f9fafc;
+  padding: 2rem;
+  border-radius: 14px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* Upload Box */
+.image-upload {
+  border: 2px dashed #d0d7e2;
+  border-radius: 12px;
+  padding: 1.2rem;
+  text-align: center;
+  background: #f8f9fc;
+  color: #4a5568;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.image-upload:hover {
+  background: #eef3ff;
+  border-color: #6b8cff;
+  color: #2b4eff;
+}
+
+.image-upload img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+/* Inputs & Textareas */
+.medicine-input,
+.medicine-textarea,
+select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  border: 1.5px solid #cbd5e1;
+  font-size: 1rem;
+  background: #f9fafb;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.medicine-input:focus,
+.medicine-textarea:focus,
+select:focus {
+  border-color: #3b82f6;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Buttons */
+.medicine-btn {
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.8rem 1.4rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.medicine-btn:hover {
+  background: linear-gradient(90deg, #2771e9, #1056ee);
+  transform: translateY(-2px);
+}
+
+.medicine-btn.delete {
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+}
+
+.medicine-btn.delete:hover {
+  background: linear-gradient(90deg, #b91c1c, #991b1b);
+}
+
+/* ===== Table Wrapper ===== */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 12px;
+  margin-top: 1.5rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  background: #fefefe;
+}
+
+/* ===== Table Styling ===== */
+.medicines-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px; /* 👈 keeps layout stable but inside scroll */
+}
+
+.medicines-table th,
+.medicines-table td {
+  padding: 0.9rem 1rem;
+  text-align: left;
+  font-size: 0.95rem;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: middle;
+}
+
+.medicines-table th {
+  background: #f1f5f9;
+  color: #1e293b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* Image column fix */
+.medicines-table td img {
+  border-radius: 8px;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border: 1px solid #e5e7eb;
+}
+
+/* Hover Row Effect */
+.medicines-table tbody tr:hover {
+  background: #f9fafb;
+  transition: background 0.2s ease;
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 1024px) {
+  .medicine-form {
+    padding: 1.5rem;
+  }
+  .medicine-btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .medicines-content {
+    padding: 1rem;
+  }
+  .medicine-form {
+    padding: 1.2rem;
+  }
+  .medicines-table {
+    min-width: 700px;
+  }
+}
+
+@media (max-width: 480px) {
+  .medicine-form {
+    padding: 1rem;
+  }
+  .medicine-btn {
+    width: 100%;
+  }
+  .medicines-table {
+    min-width: 600px;
+  }
+}

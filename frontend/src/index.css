@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans- !important;
+    font-size: 14px;
+}
+
+/* .add-btn {
+  display: block;
+  margin: 0 auto 2rem auto;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #0a74da, #0056b3);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 9px rgba(2, 77, 143, 0.3);
+} */
+
+/* .add-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #0056b3, #0a74da);
+} */
+
+
+
+/* delete */
+
+/* .cart-header button{
+  padding: 8px 12px;
+  background: linear-gradient(135deg, #da3b0a, #b30000);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 9px rgba(143, 23, 2, 0.3);
+}
+.cart-header button:hover {
+   transform: translateY(-2px);
+  background: linear-gradient(135deg, #b31500, #da290a);
+} */

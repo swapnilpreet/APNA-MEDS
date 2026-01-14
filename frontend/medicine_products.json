@@ -1,0 +1,281 @@
+[
+  {
+    "name": "Cough Syrup (Sugar-Free)",
+    "image": "https://e1.pxfuel.com/desktop-wallpaper/216/227/desktop-wallpaper-stock-of-capsule-close-up-head-ache-paracetamol.jpg",
+    "brand": "Health Remedies",
+    "category": "Cough & Cold",
+    "description": "Non-drowsy, sugar-free cough syrup for relief from dry coughs and throat irritation.",
+    "price":82.20,
+    "countInStock":120
+},
+  {
+    "name": "Paracetamol 500mg Tablet ",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Paracetamol",
+    "brand": "Cipla",
+    "category": "Pain Relief",
+    "description": "Used for reducing fever and relieving mild to moderate pain.",
+    "price": 25,
+    "countInStock": 100
+  },
+  {
+    "name": "Azithromycin 250mg ",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Azithromycin",
+    "brand": "Sun Pharma",
+    "category": "Antibiotic",
+    "description": "Used to treat a wide variety of bacterial infections.",
+    "price": 85,
+    "countInStock": 75
+  },
+  {
+    "name": "Levocetirizine 5mg ",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Levocetirizine",
+    "brand": "Dr. Reddy's",
+    "category": "Allergy",
+    "description": "Helps relieve allergy symptoms like runny nose and sneezing.",
+    "price": 40,
+    "countInStock": 60
+  },
+  {
+    "name": "Amoxicillin 500mg Capsule ",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Amoxicillin",
+    "brand": "Pfizer",
+    "category": "Antibiotic",
+    "description": "Used to treat various types of infections caused by bacteria.",
+    "price": 90,
+    "countInStock": 120
+  },
+  {
+    "name": "Pantoprazole 40mg ",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Pantoprazole",
+    "brand": "Lupin",
+    "category": "Acidity",
+    "description": "Used to treat acid reflux and ulcers.",
+    "price": 60,
+    "countInStock": 80
+  },
+  {
+    "name": "Ibuprofen 400mg ",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Ibuprofen",
+    "brand": "GSK",
+    "category": "Pain Relief",
+    "description": "Reduces inflammation and pain in the body.",
+    "price": 45,
+    "countInStock": 90
+  },
+  {
+    "name": "Cetirizine 10mg ",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Cetirizine",
+    "brand": "Zydus",
+    "category": "Allergy",
+    "description": "Used for treating allergies and hay fever.",
+    "price": 30,
+    "countInStock": 110
+  },
+  {
+    "name": "Metformin 500mg ",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Metformin",
+    "brand": "Abbott",
+    "category": "Diabetes",
+    "description": "Helps control blood sugar levels in type 2 diabetes.",
+    "price": 50,
+    "countInStock": 100
+  },
+  {
+    "name": "Telmisartan 40mg ",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Telmisartan",
+    "brand": "Sun Pharma",
+    "category": "Blood Pressure",
+    "description": "Used to treat high blood pressure (hypertension).",
+    "price": 65,
+    "countInStock": 85
+  },
+  {
+    "name": "Atorvastatin 10mg ",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Atorvastatin",
+    "brand": "Torrent",
+    "category": "Cholesterol",
+    "description": "Used to lower cholesterol and triglyceride levels.",
+    "price": 70,
+    "countInStock": 95
+  },
+  {
+    "name": "Paracetamol 500mg Tablet #2",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Paracetamol",
+    "brand": "Cipla",
+    "category": "Pain Relief",
+    "description": "Used for reducing fever and relieving mild to moderate pain.",
+    "price": 25,
+    "countInStock": 100
+  },
+  {
+    "name": "Azithromycin 250mg #2",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Azithromycin",
+    "brand": "Sun Pharma",
+    "category": "Antibiotic",
+    "description": "Used to treat a wide variety of bacterial infections.",
+    "price": 85,
+    "countInStock": 75
+  },
+  {
+    "name": "Levocetirizine 5mg #2",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Levocetirizine",
+    "brand": "Dr. Reddy's",
+    "category": "Allergy",
+    "description": "Helps relieve allergy symptoms like runny nose and sneezing.",
+    "price": 40,
+    "countInStock": 60
+  },
+  {
+    "name": "Amoxicillin 500mg Capsule #2",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Amoxicillin",
+    "brand": "Pfizer",
+    "category": "Antibiotic",
+    "description": "Used to treat various types of infections caused by bacteria.",
+    "price": 90,
+    "countInStock": 120
+  },
+  {
+    "name": "Pantoprazole 40mg #2",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Pantoprazole",
+    "brand": "Lupin",
+    "category": "Acidity",
+    "description": "Used to treat acid reflux and ulcers.",
+    "price": 60,
+    "countInStock": 80
+  },
+  {
+    "name": "Ibuprofen 400mg #2",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Ibuprofen",
+    "brand": "GSK",
+    "category": "Pain Relief",
+    "description": "Reduces inflammation and pain in the body.",
+    "price": 45,
+    "countInStock": 90
+  },
+  {
+    "name": "Cetirizine 10mg #2",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Cetirizine",
+    "brand": "Zydus",
+    "category": "Allergy",
+    "description": "Used for treating allergies and hay fever.",
+    "price": 30,
+    "countInStock": 110
+  },
+  {
+    "name": "Metformin 500mg #2",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Metformin",
+    "brand": "Abbott",
+    "category": "Diabetes",
+    "description": "Helps control blood sugar levels in type 2 diabetes.",
+    "price": 50,
+    "countInStock": 100
+  },
+  {
+    "name": "Telmisartan 40mg #2",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Telmisartan",
+    "brand": "Sun Pharma",
+    "category": "Blood Pressure",
+    "description": "Used to treat high blood pressure (hypertension).",
+    "price": 65,
+    "countInStock": 85
+  },
+  {
+    "name": "Atorvastatin 10mg #2",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Atorvastatin",
+    "brand": "Torrent",
+    "category": "Cholesterol",
+    "description": "Used to lower cholesterol and triglyceride levels.",
+    "price": 70,
+    "countInStock": 95
+  },
+  {
+    "name": "Paracetamol 500mg Tablet #3",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Paracetamol",
+    "brand": "Cipla",
+    "category": "Pain Relief",
+    "description": "Used for reducing fever and relieving mild to moderate pain.",
+    "price": 25,
+    "countInStock": 100
+  },
+  {
+    "name": "Azithromycin 250mg #3",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Azithromycin",
+    "brand": "Sun Pharma",
+    "category": "Antibiotic",
+    "description": "Used to treat a wide variety of bacterial infections.",
+    "price": 85,
+    "countInStock": 75
+  },
+  {
+    "name": "Levocetirizine 5mg #3",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Levocetirizine",
+    "brand": "Dr. Reddy's",
+    "category": "Allergy",
+    "description": "Helps relieve allergy symptoms like runny nose and sneezing.",
+    "price": 40,
+    "countInStock": 60
+  },
+  {
+    "name": "Amoxicillin 500mg Capsule #3",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Amoxicillin",
+    "brand": "Pfizer",
+    "category": "Antibiotic",
+    "description": "Used to treat various types of infections caused by bacteria.",
+    "price": 90,
+    "countInStock": 120
+  },
+  {
+    "name": "Pantoprazole 40mg #3",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Pantoprazole",
+    "brand": "Lupin",
+    "category": "Acidity",
+    "description": "Used to treat acid reflux and ulcers.",
+    "price": 60,
+    "countInStock": 80
+  },
+  {
+    "name": "Ibuprofen 400mg #3",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Ibuprofen",
+    "brand": "GSK",
+    "category": "Pain Relief",
+    "description": "Reduces inflammation and pain in the body.",
+    "price": 45,
+    "countInStock": 90
+  },
+  {
+    "name": "Cetirizine 10mg #3",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Cetirizine",
+    "brand": "Zydus",
+    "category": "Allergy",
+    "description": "Used for treating allergies and hay fever.",
+    "price": 30,
+    "countInStock": 110
+  },
+  {
+    "name": "Metformin 500mg #3",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Metformin",
+    "brand": "Abbott",
+    "category": "Diabetes",
+    "description": "Helps control blood sugar levels in type 2 diabetes.",
+    "price": 50,
+    "countInStock": 100
+  },
+  {
+    "name": "Telmisartan 40mg #3",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Telmisartan",
+    "brand": "Sun Pharma",
+    "category": "Blood Pressure",
+    "description": "Used to treat high blood pressure (hypertension).",
+    "price": 65,
+    "countInStock": 85
+  },
+  {
+    "name": "Atorvastatin 10mg #3",
+    "image": "https://dummyimage.com/600x400/4caf50/fff&text=Atorvastatin",
+    "brand": "Torrent",
+    "category": "Cholesterol",
+    "description": "Used to lower cholesterol and triglyceride levels.",
+    "price": 70,
+    "countInStock": 95
+  }
+]

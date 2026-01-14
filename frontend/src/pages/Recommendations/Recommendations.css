@@ -1,0 +1,57 @@
+.recommend-page {
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.symptom-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+
+.symptom-box input {
+  flex: 1;
+  max-width: 400px;
+  padding: 10px;
+  border-radius: 25px;
+}
+
+.symptom-box button {
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #0a74da, #0056b3);
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 9px rgba(2, 77, 143, 0.3);
+}
+
+.symptom-box button  {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #0056b3, #0a74da);
+} 
+
+.loading {
+  text-align: center;
+  margin: 10px 0;
+}
+ 
+@media (max-width: 480px) {
+  .symptom-box {
+    flex-direction: column;
+  }
+
+  .symptom-box input {
+    max-width: 100%;
+  }
+}
