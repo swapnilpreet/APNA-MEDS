@@ -146,6 +146,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
 
   // ✅ send order confirmation email
   // await sendEmail(req.user.email, "Order Confirmation", orderHtml);
+  await sendEmail(req.user.email, "Order Confirmation", orderHtml)
 
   res.status(201).json({
     success: true,
@@ -153,9 +154,6 @@ const addOrderItems = asyncHandler(async (req, res) => {
     data: createdOrder,
   });
 
-  sendEmail(req.user.email, "Order Confirmation", orderHtml)
-  .then(() => console.log("Order email sent"))
-  .catch((err) => console.error("Email failed:", err));
 });
 
 const getOrderById = asyncHandler(async (req, res) => {
