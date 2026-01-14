@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: frontend
+    name: apna-meds-frontend
     env: static
     staticPublishPath: dist
     routes:
