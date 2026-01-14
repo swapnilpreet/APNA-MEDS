@@ -60,7 +60,7 @@ const ProtectedRoute = ({ children }) => {
     }
   }, [token, navigate]);
 
-  return isAuthenticated ? children : <Login/>;
+  return isAuthenticated ? children : null;
 };
 
 export default ProtectedRoute;
