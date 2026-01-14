@@ -5,7 +5,12 @@ import nodemailer from "nodemailer";
 console.log("EMAIL:", process.env.GOOGLE_APP_EMAIL);
 console.log("PASS:", process.env.GOOGLE_APP_PASSWORD );
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host:"smtp.gmail.com",
+  port:587,
+  secure:false,
+  requireTLS:true,
+  logger:true,
+  debug:true,
   auth: {
     user: process.env.GOOGLE_APP_EMAIL,
     pass: process.env.GOOGLE_APP_PASSWORD,
@@ -21,9 +26,9 @@ transporter.verify((err, success) => {
 });
 
 export const sendEmail = async (to, subject, html) => {
-  console.log("EMAIL:", process.env.GOOGLE_APP_EMAIL);
-console.log("PASS:", process.env.GOOGLE_APP_PASSWORD );
-  console.log("📧 sendEmail called for:", to);
+//   console.log("EMAIL:", process.env.GOOGLE_APP_EMAIL);
+// console.log("PASS:", process.env.GOOGLE_APP_PASSWORD );
+  // console.log("📧 sendEmail called for:", to);
 
   try {
     await transporter.sendMail({
