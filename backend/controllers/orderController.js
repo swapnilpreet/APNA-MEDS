@@ -64,12 +64,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
   });
 
   const createdOrder = await order.save();
-
-  // for (const item of orderItems) {
-  //   await MedicineModel.findByIdAndUpdate(item.Medicine, {
-  //     $inc: { countInStock: -item.qty },
-  //   });
-  // }
+ 
   await Promise.all(
   orderItems.map(item =>
     MedicineModel.findByIdAndUpdate(item.Medicine, {
@@ -143,10 +138,9 @@ const addOrderItems = asyncHandler(async (req, res) => {
   </div>
 </div>
   `;
-
-  // ✅ send order confirmation email
-  // await sendEmail(req.user.email, "Order Confirmation", orderHtml);
-  await sendEmail(req.user.email, "Order Confirmation", orderHtml)
+ 
+   sendEmail(req.user.email, "Order Confirmation - Apna-Meds", orderHtml)
+    .catch(err => console.error("Email failed:", err));
 
   res.status(201).json({
     success: true,
