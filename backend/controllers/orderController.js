@@ -65,11 +65,18 @@ const addOrderItems = asyncHandler(async (req, res) => {
 
   const createdOrder = await order.save();
 
-  for (const item of orderItems) {
-    await MedicineModel.findByIdAndUpdate(item.Medicine, {
+  // for (const item of orderItems) {
+  //   await MedicineModel.findByIdAndUpdate(item.Medicine, {
+  //     $inc: { countInStock: -item.qty },
+  //   });
+  // }
+  await Promise.all(
+  orderItems.map(item =>
+    MedicineModel.findByIdAndUpdate(item.Medicine, {
       $inc: { countInStock: -item.qty },
-    });
-  }
+    })
+  )
+);
 
   const orderHtml = `
    <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; padding: 20px; color: #333333; line-height: 1.6;">
@@ -138,13 +145,17 @@ const addOrderItems = asyncHandler(async (req, res) => {
   `;
 
   // ✅ send order confirmation email
-  await sendEmail(req.user.email, "Order Confirmation", orderHtml);
+  // await sendEmail(req.user.email, "Order Confirmation", orderHtml);
 
-  return res.status(201).json({
+  res.status(201).json({
     success: true,
     message: "Order placed successfully",
     data: createdOrder,
   });
+
+  sendEmail(req.user.email, "Order Confirmation", orderHtml)
+  .then(() => console.log("Order email sent"))
+  .catch((err) => console.error("Email failed:", err));
 });
 
 const getOrderById = asyncHandler(async (req, res) => {
