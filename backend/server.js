@@ -18,8 +18,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173", // local
-      "https://apna-meds-frontend.onrender.com/", // production frontend
-      "https://apna-meds-backend.onrender.com/"
+      "https://apna-meds-frontend.onrender.com", // production frontend
     ],
     credentials: true,
   })
