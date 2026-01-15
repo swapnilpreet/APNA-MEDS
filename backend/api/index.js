@@ -17,7 +17,7 @@ dotenv.config();
 const app = express();
 
 /* 🔹 DB CONNECT (IMPORTANT) */
-await connectDB();
+connectDB();
 
 /* 🔹 Middlewares */
 app.use(express.json());
