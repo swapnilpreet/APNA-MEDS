@@ -1,7 +1,8 @@
 import asyncHandler from "express-async-handler";
 import User from "../models/User.js";
 import generateToken from "../utills/generateToken.js";
-// import { sendEmail } from "../utills/sendEmail.js";
+import dotenv from "dotenv";
+dotenv.config();
 import crypto from "crypto";
 
 const loginUser = asyncHandler(async (req, res) => {
