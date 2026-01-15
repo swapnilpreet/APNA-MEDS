@@ -33,7 +33,7 @@ const AllRoutes = () => {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/verify-email" element={<VerifyEmail />} />
+        <Route path="/verifyemail" element={<VerifyEmail />} />
         <Route
           path="/"
           element={
