@@ -10,11 +10,11 @@ const VerifyEmail=()=>{
   const [status, setStatus] = useState("loading");
   const [message, setMessage] = useState("");
 
-  useEffect(() => {
+  useEffect(()=>{
     const verifyUserEmail = async () => {
       try {
         const res = await axios.get(
-          `${import.meta.env.VITE_BASEURL}/api/auth/verify-email?token=${token}`
+          `${import.meta.env.VITE_BASEURL}/api/auth/verifyemail?token=${token}`
         );
         setStatus("success");
         setMessage(res.data.message);

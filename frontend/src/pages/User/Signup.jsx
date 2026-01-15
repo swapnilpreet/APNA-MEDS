@@ -47,11 +47,8 @@ const Signup = () => {
     }
   };
 
-  const sendMail = async (user) => {
-    // const verifyUrl = `https://apna-meds.vercel.app/api/auth/verify-email?token=${
-    //   user.verificationToken
-    // }`;
-    const verifyUrl = `https://apna-meds.vercel.app/verify-email?token=${user.verificationToken}`;
+  const sendMail=async(user)=>{
+    const verifyUrl = `https://apna-meds.vercel.app/verifyemail?token=${user.verificationToken}`;
     const htmlContent = `
     <h2>Welcome,${user.name}!</h2>
     <p>Click the link below to verify your email and activate your account</p>

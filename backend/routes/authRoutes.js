@@ -8,6 +8,6 @@ const router = express.Router();
 router.post('/register', registerUser);
 router.put('/password',protect,changepassword); // not using 
 router.post('/login',loginUser);
-router.get("/verify-email", verifyEmail);
+router.get("/verifyemail", verifyEmail);
 
 export default router;
