@@ -198,7 +198,6 @@ const Cart = () => {
     if (!response.ok) {
       throw new Error(data.message || "Failed to send email");
     }
-
     console.log("Email sent:", data);
     alert("Email sent successfully 🚀");
   } catch (error) {
