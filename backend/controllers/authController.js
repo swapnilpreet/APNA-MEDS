@@ -66,14 +66,14 @@ const registerUser = asyncHandler(async (req, res) => {
       message: "Invalid user data provided.",
     });
   }
-  console.log("process.env.FRONTEND_URL",process.env.FRONTEND_URL)
-  const verifyUrl = `https://apna-meds.vercel.app/login/verify-email?token=${verificationToken}`;
-  const htmlContent = `
-    <h2>Welcome,${name}!</h2>
-    <p>Click the link below to verify your email and activate your account</p>
-    <a href="${verifyUrl}" target="_blank">Verify Email</a>
-    <p>If you did not register, please ignore this email.</p>
-  `;
+  // console.log("process.env.FRONTEND_URL",process.env.FRONTEND_URL)
+  // const verifyUrl = `https://apna-meds.vercel.app/login/verify-email?token=${verificationToken}`;
+  // const htmlContent=`
+  //   <h2>Welcome,${name}!</h2>
+  //   <p>Click the link below to verify your email and activate your account</p>
+  //   <a href="${verifyUrl}" target="_blank">Verify Email</a>
+  //   <p>If you did not register, please ignore this email.</p>
+  // `;
   // try {
     // await sendEmail(
     //   email,

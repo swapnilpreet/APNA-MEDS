@@ -48,7 +48,7 @@ const Signup = () => {
   };
 
   const sendMail = async (user) => {
-    const verifyUrl = `${import.meta.env.VITE_FRONTEND}/verify-email?token=${
+    const verifyUrl = `${import.meta.env.VITE_FRONTEND}/api/auth/verify-email?token=${
       user.verificationToken
     }`;
     const htmlContent = `
