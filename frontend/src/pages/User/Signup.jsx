@@ -48,7 +48,7 @@ const Signup = () => {
   };
 
   const sendMail = async (user) => {
-    const verifyUrl = `${import.meta.env.VITE_FRONTEND}/api/auth/verify-email?token=${
+    const verifyUrl = `https://apna-meds.vercel.app/api/auth/verify-email?token=${
       user.verificationToken
     }`;
     const htmlContent = `
