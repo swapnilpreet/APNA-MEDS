@@ -66,6 +66,7 @@ const registerUser = asyncHandler(async (req, res) => {
       message: "Invalid user data provided.",
     });
   }
+  console.log("process.env.FRONTEND_URL",process.env.FRONTEND_URL)
   const verifyUrl = `${process.env.FRONTEND_URL}/verify-email?token=${verificationToken}`;
   const htmlContent = `
     <h2>Welcome,${name}!</h2>
