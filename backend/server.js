@@ -20,6 +20,7 @@ app.use(
     origin: [
       "http://localhost:5173", // local
       "https://apna-meds-frontend.onrender.com", // production frontend
+      "https://apna-meds.vercel.app"
     ],
     credentials: true,
   })
