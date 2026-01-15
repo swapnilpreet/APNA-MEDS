@@ -25,6 +25,8 @@ const Cart = () => {
   const [selectedAddress, setSelectedAddress] = useState();
   const [hasFetched, setHasFetched] = useState(false);
   const { loading } = useSelector((state) => state.loaders);
+    const { user } = useSelector((state) => state.users);
+    console.log("User",user)
 
   const handlePayment = () => {
     dispatch(SetLoader(true));
@@ -86,7 +88,7 @@ const Cart = () => {
         `${import.meta.env.VITE_BASEURL}/api/orders`,
         orderPayload,
         {
-          headers: {
+          headers:{
             "Content-Type": "application/json",
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -94,6 +96,7 @@ const Cart = () => {
       );
       console.log("place order response", response);
       if (response?.data?.success) {
+        sendMail(response.data.data);
         clearCarts();
         toast.success(response?.data?.message);
       } else {
@@ -106,6 +109,103 @@ const Cart = () => {
       // console.log(error);
     }
   };
+
+
+  const sendMail = async (data) => {
+    console.log("sendMail",data)
+       const orderHtml = `
+   <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; padding: 20px; color: #333333; line-height: 1.6;">
+  <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.08);">
+
+    <div style="background: linear-gradient(135deg, #4CAF50, #2E7D32); color: #ffffff; padding: 30px; text-align: center;">
+      <h1 style="margin: 0; font-size: 28px; font-weight: 600;">Order Confirmed!</h1>
+      <p style="margin: 5px 0 0; font-size: 16px; opacity: 0.9;">Thank you for your purchase.</p>
+    </div>
+
+    <div style="padding: 25px 30px;">
+      <h2 style="color: #4CAF50; font-size: 22px; font-weight: 600; margin-top: 0;">Hello , ${
+        user.name
+      },</h2>
+      <p style="font-size: 16px;">Your order <b style="color:#2E7D32;">#${
+        data.orderId
+      }</b> has been successfully placed. We'll send you another email when it ships. 🚀</p>
+
+      <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 25px 0;">
+
+      <h3 style="font-size: 18px; color: #555555; margin-bottom: 15px;">🛍️ Order Summary</h3>
+      <ul style="list-style: none; padding: 0; margin: 0;">
+        ${data.orderItems
+          .map(
+            (item) => `
+          <li style="padding: 12px 0; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center;">
+            <img src="${item.image}" alt="${item.name}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 6px; margin-right: 15px;">
+            <div style="flex-grow: 1;">
+              <div style="font-weight: 500;">${item.name}</div>
+              <div style="font-size: 14px; color: #777777; margin-top: 5px;"> Qty: <b>${item.qty}</b></div>
+              <div style="font-size: 14px; color: #2E7D32; margin-top: 5px;"> Price: <b>₹${item.price}</b></div>
+            </div>
+          </li>
+        `
+          )
+          .join("")}
+      </ul>
+
+      <div style="text-align: right; margin-top: 20px;">
+        <p style="font-size: 18px; font-weight: 600; margin: 0;">
+          Total: <span style="color: #2E7D32; font-size: 24px;">₹${
+            data.totalPrice
+          }</span>
+        </p>
+      </div>
+
+      <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 25px 0;">
+
+      <h3 style="font-size: 18px; color: #555555; margin-bottom: 15px;">🚚 Shipping Address</h3>
+      <p style="font-size: 15px; margin: 0;">
+        <b>${data.patientDetails.name || user.name}</b><br>
+        ${data.shippingAddress.address}, <br>
+        ${data.shippingAddress.city}, ${data.shippingAddress.country} - ${
+    data.shippingAddress.postalcode
+  }
+      </p>
+
+    </div>
+
+    <div style="background: #f8f9fa; padding: 20px; text-align: center; font-size: 13px; color: #888888; border-top: 1px solid #eeeeee;">
+      <p style="margin: 0;">If you have any questions, feel free to contact us.</p>
+      <p style="margin: 5px 0 0;">&copy; ${new Date().getFullYear()} APNA-MED. All rights reserved.</p>
+    </div>
+  </div>
+</div>
+  `;
+ 
+
+  try {
+    const response = await fetch(`${import.meta.env.VITE_BASEURL}/api/mail/send`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        to: user.email,
+        subject: "Order Confirmation - Apna-Meds",
+        html: orderHtml,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message || "Failed to send email");
+    }
+
+    console.log("Email sent:", data);
+    alert("Email sent successfully 🚀");
+  } catch (error) {
+    console.error("Send mail error:", error);
+    alert(error.message || "Something went wrong");
+  }
+};
 
   const clearCarts = async () => {
     try {

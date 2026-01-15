@@ -1,7 +1,7 @@
 import asyncHandler from "express-async-handler";
 import User from "../models/User.js";
 import generateToken from "../utills/generateToken.js";
-import { sendEmail } from "../utills/sendEmail.js";
+// import { sendEmail } from "../utills/sendEmail.js";
 import crypto from "crypto";
 
 const loginUser = asyncHandler(async (req, res) => {
@@ -57,6 +57,8 @@ const registerUser = asyncHandler(async (req, res) => {
     verificationToken,
     isVerified: false,
   });
+
+  // console.log('newUser-backend',newUser)
   if (!newUser) {
     return res.send({
       success: false,
@@ -70,27 +72,28 @@ const registerUser = asyncHandler(async (req, res) => {
     <a href="${verifyUrl}" target="_blank">Verify Email</a>
     <p>If you did not register, please ignore this email.</p>
   `;
-  try {
-    await sendEmail(
-      email,
-      "Verify your email address",
-      htmlContent
-    );
+  // try {
+    // await sendEmail(
+    //   email,
+    //   "Verify your email address",
+    //   htmlContent
+    // );
 
     return res.status(201).json({
       success: true,
       message:
         "Registration successful. Please verify your email before logging in.",
+      data:newUser,
     });
-  } catch (emailError) {
-    // Optional cleanup (BEST PRACTICE)
-    await User.findByIdAndDelete(newUser._id);
+  // } catch (emailError) {
+  //   // Optional cleanup (BEST PRACTICE)
+  //   await User.findByIdAndDelete(newUser._id);
 
-    return res.status(500).json({
-      success: false,
-      message: "Failed to send verification email. Please try again.",
-    });
-  }
+  //   return res.status(500).json({
+  //     success: false,
+  //     message: "Failed to send verification email. Please try again.",
+  //   });
+  // }
 });
 
 const changepassword = asyncHandler(async (req, res) => {

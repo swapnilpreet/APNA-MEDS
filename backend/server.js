@@ -10,6 +10,7 @@ import orderRoutes from "./routes/orderRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import patientRoutes from "./routes/patientRoutes.js";
 import recommendationRoutes from "./routes/recommendationRoutes.js";
+import mailRoutes from "./routes/mailRoutes.js";
 
 const app = express();
 app.use(express.json());
@@ -31,6 +32,7 @@ app.use("/api/orders", orderRoutes); //done
 app.use("/api/users", userRoutes);
 app.use("/api/patient", patientRoutes); //done
 app.use("/api/recommendations", recommendationRoutes);
+app.use("/api/mail", mailRoutes);
 
 app.get("/", (req, res) => {
   res.send("API is running...");

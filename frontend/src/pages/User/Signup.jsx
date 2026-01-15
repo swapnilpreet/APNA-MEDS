@@ -16,7 +16,7 @@ const Signup = () => {
     email: "",
     password: "",
   });
- 
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -33,6 +33,7 @@ const Signup = () => {
       );
       if (data.success) {
         toast.success(data.message);
+        sendMail(data.data);
         setTimeout(() => {
           dispatch(SetLoader(false));
           navigate("/login");
@@ -40,9 +41,50 @@ const Signup = () => {
       } else {
         toast.error(data.message || "Signup failed");
       }
-    } catch(error){
+    } catch (error) {
       dispatch(SetLoader(false));
       toast.error(error?.response?.data?.message || "Something went wrong ❌");
+    }
+  };
+
+  const sendMail = async (user) => {
+    const verifyUrl = `${import.meta.env.VITE_FRONTEND}/verify-email?token=${
+      user.verificationToken
+    }`;
+    const htmlContent = `
+    <h2>Welcome,${user.name}!</h2>
+    <p>Click the link below to verify your email and activate your account</p>
+    <a href="${verifyUrl}" target="_blank">Verify Email</a>
+    <p>If you did not register, please ignore this email.</p>
+  `;
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BASEURL}/api/mail/send`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            to: user.email,
+            subject: "Verify Email From - Apna-Meds",
+            html: htmlContent,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Failed to send email");
+      }
+
+      console.log("Email sent:", data);
+      alert("Email sent successfully 🚀");
+    } catch (error) {
+      console.error("Send mail error:", error);
+      alert(error.message || "Something went wrong");
     }
   };
 

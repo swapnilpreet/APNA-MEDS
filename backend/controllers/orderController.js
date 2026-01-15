@@ -1,7 +1,7 @@
 import asyncHandler from "express-async-handler";
 import Order from "../models/Order.js";
 import MedicineModel from "../models/Medicine.js";
-import { sendEmail } from "../utills/sendEmail.js";
+// import { sendEmail } from "../utills/sendEmail.js";
 
 const addOrderItems = asyncHandler(async (req, res) => {
   const uniqueOrderId = `ORD-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
@@ -72,81 +72,80 @@ const addOrderItems = asyncHandler(async (req, res) => {
   )
 );
 
-  const orderHtml = `
-   <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; padding: 20px; color: #333333; line-height: 1.6;">
-  <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.08);">
+//   const orderHtml = `
+//    <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; padding: 20px; color: #333333; line-height: 1.6;">
+//   <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.08);">
 
-    <div style="background: linear-gradient(135deg, #4CAF50, #2E7D32); color: #ffffff; padding: 30px; text-align: center;">
-      <h1 style="margin: 0; font-size: 28px; font-weight: 600;">Order Confirmed!</h1>
-      <p style="margin: 5px 0 0; font-size: 16px; opacity: 0.9;">Thank you for your purchase.</p>
-    </div>
+//     <div style="background: linear-gradient(135deg, #4CAF50, #2E7D32); color: #ffffff; padding: 30px; text-align: center;">
+//       <h1 style="margin: 0; font-size: 28px; font-weight: 600;">Order Confirmed!</h1>
+//       <p style="margin: 5px 0 0; font-size: 16px; opacity: 0.9;">Thank you for your purchase.</p>
+//     </div>
 
-    <div style="padding: 25px 30px;">
-      <h2 style="color: #4CAF50; font-size: 22px; font-weight: 600; margin-top: 0;">Hello , ${
-        req.user.name
-      },</h2>
-      <p style="font-size: 16px;">Your order <b style="color:#2E7D32;">#${
-        createdOrder.orderId
-      }</b> has been successfully placed. We'll send you another email when it ships. 🚀</p>
+//     <div style="padding: 25px 30px;">
+//       <h2 style="color: #4CAF50; font-size: 22px; font-weight: 600; margin-top: 0;">Hello , ${
+//         req.user.name
+//       },</h2>
+//       <p style="font-size: 16px;">Your order <b style="color:#2E7D32;">#${
+//         createdOrder.orderId
+//       }</b> has been successfully placed. We'll send you another email when it ships. 🚀</p>
 
-      <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 25px 0;">
+//       <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 25px 0;">
 
-      <h3 style="font-size: 18px; color: #555555; margin-bottom: 15px;">🛍️ Order Summary</h3>
-      <ul style="list-style: none; padding: 0; margin: 0;">
-        ${createdOrder.orderItems
-          .map(
-            (item) => `
-          <li style="padding: 12px 0; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center;">
-            <img src="${item.image}" alt="${item.name}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 6px; margin-right: 15px;">
-            <div style="flex-grow: 1;">
-              <div style="font-weight: 500;">${item.name}</div>
-              <div style="font-size: 14px; color: #777777; margin-top: 5px;"> Qty: <b>${item.qty}</b></div>
-              <div style="font-size: 14px; color: #2E7D32; margin-top: 5px;"> Price: <b>₹${item.price}</b></div>
-            </div>
-          </li>
-        `
-          )
-          .join("")}
-      </ul>
+//       <h3 style="font-size: 18px; color: #555555; margin-bottom: 15px;">🛍️ Order Summary</h3>
+//       <ul style="list-style: none; padding: 0; margin: 0;">
+//         ${createdOrder.orderItems
+//           .map(
+//             (item) => `
+//           <li style="padding: 12px 0; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center;">
+//             <img src="${item.image}" alt="${item.name}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 6px; margin-right: 15px;">
+//             <div style="flex-grow: 1;">
+//               <div style="font-weight: 500;">${item.name}</div>
+//               <div style="font-size: 14px; color: #777777; margin-top: 5px;"> Qty: <b>${item.qty}</b></div>
+//               <div style="font-size: 14px; color: #2E7D32; margin-top: 5px;"> Price: <b>₹${item.price}</b></div>
+//             </div>
+//           </li>
+//         `
+//           )
+//           .join("")}
+//       </ul>
 
-      <div style="text-align: right; margin-top: 20px;">
-        <p style="font-size: 18px; font-weight: 600; margin: 0;">
-          Total: <span style="color: #2E7D32; font-size: 24px;">₹${
-            createdOrder.totalPrice
-          }</span>
-        </p>
-      </div>
+//       <div style="text-align: right; margin-top: 20px;">
+//         <p style="font-size: 18px; font-weight: 600; margin: 0;">
+//           Total: <span style="color: #2E7D32; font-size: 24px;">₹${
+//             createdOrder.totalPrice
+//           }</span>
+//         </p>
+//       </div>
 
-      <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 25px 0;">
+//       <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 25px 0;">
 
-      <h3 style="font-size: 18px; color: #555555; margin-bottom: 15px;">🚚 Shipping Address</h3>
-      <p style="font-size: 15px; margin: 0;">
-        <b>${shippingAddress.name || req.user.name}</b><br>
-        ${shippingAddress.address}, <br>
-        ${shippingAddress.city}, ${shippingAddress.country} - ${
-    shippingAddress.postalcode
-  }
-      </p>
+//       <h3 style="font-size: 18px; color: #555555; margin-bottom: 15px;">🚚 Shipping Address</h3>
+//       <p style="font-size: 15px; margin: 0;">
+//         <b>${shippingAddress.name || req.user.name}</b><br>
+//         ${shippingAddress.address}, <br>
+//         ${shippingAddress.city}, ${shippingAddress.country} - ${
+//     shippingAddress.postalcode
+//   }
+//       </p>
 
-    </div>
+//     </div>
 
-    <div style="background: #f8f9fa; padding: 20px; text-align: center; font-size: 13px; color: #888888; border-top: 1px solid #eeeeee;">
-      <p style="margin: 0;">If you have any questions, feel free to contact us.</p>
-      <p style="margin: 5px 0 0;">&copy; ${new Date().getFullYear()} APNA-MED. All rights reserved.</p>
-    </div>
-  </div>
-</div>
-  `;
+//     <div style="background: #f8f9fa; padding: 20px; text-align: center; font-size: 13px; color: #888888; border-top: 1px solid #eeeeee;">
+//       <p style="margin: 0;">If you have any questions, feel free to contact us.</p>
+//       <p style="margin: 5px 0 0;">&copy; ${new Date().getFullYear()} APNA-MED. All rights reserved.</p>
+//     </div>
+//   </div>
+// </div>
+//   `;
  
-   sendEmail(req.user.email, "Order Confirmation - Apna-Meds", orderHtml)
-    .catch(err=>console.error("Email failed:", err));
+//    sendEmail(req.user.email, "Order Confirmation - Apna-Meds", orderHtml)
+//     .catch(err=>console.error("Email failed:", err));
 
   res.status(201).json({
     success: true,
     message: "Order placed successfully",
     data: createdOrder,
   });
-
 });
 
 const getOrderById = asyncHandler(async (req, res) => {
