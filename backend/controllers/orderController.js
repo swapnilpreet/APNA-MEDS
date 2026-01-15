@@ -64,7 +64,6 @@ const addOrderItems = asyncHandler(async (req, res) => {
   });
 
   const createdOrder = await order.save();
- 
   await Promise.all(
   orderItems.map(item =>
     MedicineModel.findByIdAndUpdate(item.Medicine, {
@@ -140,7 +139,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
   `;
  
    sendEmail(req.user.email, "Order Confirmation - Apna-Meds", orderHtml)
-    .catch(err => console.error("Email failed:", err));
+    .catch(err=>console.error("Email failed:", err));
 
   res.status(201).json({
     success: true,

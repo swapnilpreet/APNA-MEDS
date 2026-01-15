@@ -1,47 +1,52 @@
+// import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 dotenv.config();
-import nodemailer from "nodemailer";
 
-console.log("EMAIL:", process.env.GOOGLE_APP_EMAIL);
-console.log("PASS:", process.env.GOOGLE_APP_PASSWORD );
-const transporter = nodemailer.createTransport({
-  host:"smtp.gmail.com",
-  port:587,
-  secure:false,
-  requireTLS:true,
-  logger:true,
-  debug:true,
-  auth: {
-    user: process.env.GOOGLE_APP_EMAIL,
-    pass: process.env.GOOGLE_APP_PASSWORD,
-  },
-});
+// const transporter = nodemailer.createTransport({
+//   host: "smtp.gmail.com",
+//   port: 587,
+//   secure: false,
+//   auth: {
+//     user: process.env.GOOGLE_APP_EMAIL,
+//     pass: process.env.GOOGLE_APP_PASSWORD,
+//   },
+// });
 
-transporter.verify((err, success) => {
-  if (err) {
-    console.error("SMTP ERROR:", err.message);
-  } else {
-    console.log("SMTP READY ✅");
-  }
-});
+// transporter.verify()
+//   .then(() => console.log("SMTP READY ✅"))
+//   .catch(err => console.error("SMTP ERROR:", err.message));
+
+// export const sendEmail = async (to, subject, html) => {
+//   console.log("sending email")
+//   await transporter.sendMail({
+//     from: `"Apna-med Pharmacy" <${process.env.GOOGLE_APP_EMAIL}>`,
+//     to,
+//     subject,
+//     html,
+//   });
+//   console.log("✅ Email sent successfully");
+// };
+
+import sgMail from "@sendgrid/mail";
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 export const sendEmail = async (to, subject, html) => {
-//   console.log("EMAIL:", process.env.GOOGLE_APP_EMAIL);
-// console.log("PASS:", process.env.GOOGLE_APP_PASSWORD );
-  // console.log("📧 sendEmail called for:", to);
-
   try {
-    await transporter.sendMail({
-      from: `Apna-med Pharmacy <${process.env.GOOGLE_APP_EMAIL}>`,
+    const response = await sgMail.send({
       to,
+      from: process.env.SENDGRID_FROM_EMAIL, // must be verified
       subject,
       html,
     });
 
-    console.log("✅ Email sent successfully");
-    return;
+    console.log("✅ Email sent via SendGrid");
+    return response; // ✅ IMPORTANT
   } catch (error) {
-    console.error("❌ Email error:", error.message);
-    throw error; // IMPORTANT
+    console.error(
+      "❌ SendGrid error:",
+      error.response?.body || error.message
+    );
+    throw error;
   }
 };

@@ -71,25 +71,24 @@ const registerUser = asyncHandler(async (req, res) => {
     <p>If you did not register, please ignore this email.</p>
   `;
   try {
-    const response = await sendEmail(
+    await sendEmail(
       email,
       "Verify your email address",
       htmlContent
     );
-    console.log("Email sent response:", response);
-    if (response) {
-      return res.send({
-        success: true,
-        message:
-          "Registration successful. Please verify your email before logging in.",
-      });
-    } else {
-      throw new Error("Email sending failed");
-    }
+
+    return res.status(201).json({
+      success: true,
+      message:
+        "Registration successful. Please verify your email before logging in.",
+    });
   } catch (emailError) {
-    return res.send({
+    // Optional cleanup (BEST PRACTICE)
+    await User.findByIdAndDelete(newUser._id);
+
+    return res.status(500).json({
       success: false,
-      message: "User created, but failed to send verification email.",
+      message: "Failed to send verification email. Please try again.",
     });
   }
 });
