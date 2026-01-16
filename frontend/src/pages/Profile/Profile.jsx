@@ -61,7 +61,7 @@ const Profile = () => {
     } catch (err) {
       console.error(err);
     }finally{
-      dispatch(SetLoader(true))
+      dispatch(SetLoader(false))
     }
 
   };
