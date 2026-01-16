@@ -15,7 +15,7 @@ const Ordertab = () => {
   const getAllOrders = async () => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_BASEURL}/orders`,
+        `${import.meta.env.VITE_BASEURL}/api/orders`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -33,7 +33,7 @@ const Ordertab = () => {
   const handleStatusChange = async (id, newStatus) => {
     try {
       const { data } = await axios.put(
-        `/api/orders/${id}/shipping`,
+        `${import.meta.env.VITE_BASEURL}/api/orders/${id}/shipping`,
         { shippingStatus: newStatus },
         {
           headers: {

@@ -44,8 +44,8 @@ app.use("/api/patient", patientRoutes);
 app.use("/api/recommendations", recommendationRoutes);
 app.use("/api/mail", mailRoutes);
 
-app.get("/api", (req, res) => {
-  res.json({ success: true, message: "Backend is running 🚀" });
+app.get("/", (req, res) => {
+  res.send("Backend running on Vercel 🚀");
 });
 
 /* 🔹 Error handling */

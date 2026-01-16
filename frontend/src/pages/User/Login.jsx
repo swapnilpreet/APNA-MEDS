@@ -23,7 +23,7 @@ const Login = () => {
     try {
       dispatch(SetLoader(true));
       const{data}= await axios.post(
-        `${import.meta.env.VITE_BASEURL}/auth/login`,
+        `${import.meta.env.VITE_BASEURL}/api/auth/login`,
         formData
       );
       if (data.success) {
