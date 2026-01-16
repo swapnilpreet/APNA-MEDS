@@ -15,7 +15,7 @@ const Ordertab = () => {
   const getAllOrders = async () => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_BASEURL}/api/orders`,
+        `${import.meta.env.VITE_BASEURL}/orders`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

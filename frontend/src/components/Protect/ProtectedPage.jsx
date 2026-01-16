@@ -32,7 +32,7 @@ const ProtectedRoute = ({ children }) => {
         try {
           dispatch(SetLoader(true));
           const response = await axios.get(
-            `${import.meta.env.VITE_BASEURL}/api/users/profile`,
+            `${import.meta.env.VITE_BASEURL}/users/profile`,
             {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
