@@ -42,6 +42,11 @@
   animation: fadeInLogo 2s ease-in-out;
   margin: 0;
 }
+.logo-heading a {
+  text-decoration: none;
+  color: inherit;
+}
+
 
 @keyframes fadeInLogo {
   from {
