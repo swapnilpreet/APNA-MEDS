@@ -76,79 +76,81 @@ const Ordertab = () => {
     <>
       {loading ? (
         <MedicineLoader />
+      ) : sortedOrders.length === 0 ? (
+        <Error message="No Order Found" />
       ) : (
         <div className="order-content">
-          {sortedOrders.length > 0 ? (
-            <>
-              <h2>All Orders</h2>
-              <div className="table-wrapper">
-                <table className="order-table">
-                  <thead>
-                    <tr>
-                      <th>Payment ID</th>
-                      <th>User</th>
-                      <th>Current Status</th>
-                      <th>Action</th>
-                      <th>Shipping Address</th>
-                      <th>Total Price</th>
-                      <th
-                        onClick={() =>
-                          setSortOrder(sortOrder === "asc" ? "desc" : "asc")
+          <h2>All Orders</h2>
+
+          <div className="table-wrapper">
+            <table className="order-table">
+              <thead>
+                <tr>
+                  <th>Payment ID</th>
+                  <th>User</th>
+                  <th>Current Status</th>
+                  <th>Action</th>
+                  <th>Shipping Address</th>
+                  <th>Total Price</th>
+                  <th
+                    onClick={() =>
+                      setSortOrder(sortOrder === "asc" ? "desc" : "asc")
+                    }
+                    style={{ cursor: "pointer" }}
+                  >
+                    Date {sortOrder === "asc" ? "↑" : "↓"}
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {paginatedOrders.map((order) => (
+                  <tr key={order?._id}>
+                    <td>
+                      {order?.paymentMethod}
+                      {order?.orderId}
+                    </td>
+                    <td>{order?.user?.name}</td>
+                    <td>{order?.shippingStatus}</td>
+
+                    <td>
+                      <select
+                        className="status-select"
+                        value={order?.shippingStatus}
+                        onChange={(e) =>
+                          handleStatusChange(order?._id, e.target.value)
                         }
                       >
-                        Date {sortOrder === "asc" ? "↑" : "↓"}
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {sortedOrders &&
-                      paginatedOrders.map((order) => (
-                        <tr key={order?._id}>
-                          <td>
-                            {order?.paymentMethod}
-                            {order?.orderId}
-                          </td>
-                          <td>{order?.user?.name}</td>
-                          <td>{order?.shippingStatus}</td>
-                          <td>
-                            <select
-                              className="status-select"
-                              defaultValue={order?.shippingStatus}
-                              onChange={(e) =>
-                                handleStatusChange(order?._id, e.target.value)
-                              }
-                            >
-                              <option value="Processing">Processing</option>
-                              <option value="Packed">Packed</option>
-                              <option value="Shipped">Shipped</option>
-                              <option value="Out for Delivery">
-                                Out for Delivery
-                              </option>
-                              <option value="Delivered">Delivered</option>
-                            </select>
-                          </td>
-                          <td>
-                            {order?.shippingAddress?.address},{" "}
-                            {order?.shippingAddress?.city},{" "}
-                            {order?.shippingAddress?.country},{" "}
-                            {order?.shippingAddress?.postalCode}
-                          </td>
-                          <td>{order?.totalPrice}</td>
-                          <td>{new Date(order?.createdAt).toLocaleString()}</td>
-                        </tr>
-                      ))}
-                  </tbody>
-                </table>
-              </div>
-              <Pagination
-                totalPages={totalPages}
-                currentPage={currentPage}
-                handlePageChange={setCurrentPage}
-              />
-            </>
-          ) : (
-            <Error message={"No Order Found"} />
-          )}
+                        <option value="Processing">Processing</option>
+                        <option value="Packed">Packed</option>
+                        <option value="Shipped">Shipped</option>
+                        <option value="Out for Delivery">
+                          Out for Delivery
+                        </option>
+                        <option value="Delivered">Delivered</option>
+                      </select>
+                    </td>
+
+                    <td>
+                      {order?.shippingAddress?.address},{" "}
+                      {order?.shippingAddress?.city},{" "}
+                      {order?.shippingAddress?.country},{" "}
+                      {order?.shippingAddress?.postalCode}
+                    </td>
+
+                    <td>₹{order?.totalPrice}</td>
+                    <td>{new Date(order?.createdAt).toLocaleString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <Pagination
+            totalPages={totalPages}
+            currentPage={currentPage}
+            handlePageChange={setCurrentPage}
+          />
         </div>
       )}
     </>
