@@ -147,6 +147,7 @@ const Profile = () => {
       console.log("response", response);
       if (response.data.success) {
         resetpasswordmodal();
+        handleLogout();
       }
       toast(response.data.message || response.response.data.message);
     } catch (error) {
@@ -158,6 +159,11 @@ const Profile = () => {
     dispatch(SetShowModel(false));
     setEditConditionId(null);
     setIsEditingMedical(false);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/login";
   };
 
   const resetUserModel = () => {
