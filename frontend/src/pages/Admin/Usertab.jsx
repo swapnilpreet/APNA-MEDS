@@ -26,7 +26,7 @@ const Usertab = () => {
         // toast.success(response.data.message);
         setUserData(response.data.data);
       }
-    } catch(error){
+    } catch (error) {
       console.log("frontend-error", error);
       toast.error(error.response?.data?.message || error.message);
     } finally {
@@ -59,7 +59,9 @@ const Usertab = () => {
   return (
     <>
       {loading ? (
-        <MedicineLoader/>
+        <MedicineLoader />
+      ) : userData?.length === 0 ? (
+        <Error message="No Users Found" />
       ) : (
         <div className="user-content">
           <h2>All Users</h2>
@@ -76,8 +78,8 @@ const Usertab = () => {
               </thead>
 
               <tbody>
-                {userData?.map((item, index) => (
-                  <tr key={index}>
+                {userData.map((item) => (
+                  <tr key={item._id}>
                     <td>{item.name}</td>
                     <td>{item.email}</td>
                     <td>{item.isAdmin ? "Admin" : "User"}</td>

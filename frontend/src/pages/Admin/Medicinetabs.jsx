@@ -276,25 +276,25 @@ const Medicinetabs = () => {
         <MedicineLoader />
       ) : (
         <div className="medicines-content">
-          {!showMedicineForm && (
+          {/* ADD / CLOSE FORM BUTTON */}
+          {!showMedicineForm ? (
             <button
               className="medicine-btn"
-              onClick={() => setShowMedicineForm(!showMedicineForm)}
+              onClick={() => setShowMedicineForm(true)}
             >
               Add Medicine
             </button>
-          )}
-          {showMedicineForm && (
-            <button className="medicine-btn" onClick={() => resetForm()}>
+          ) : (
+            <button className="medicine-btn" onClick={resetForm}>
               Close Form
             </button>
           )}
+
+          {/* ADD MEDICINE FORM */}
           {showMedicineForm && (
             <form className="medicine-form" onSubmit={handleSubmit}>
               <label className="image-upload">
-                {loading ? (
-                  <MedicineLoader loading={loading} />
-                ) : preview ? (
+                {preview ? (
                   <img src={preview} alt="preview" />
                 ) : (
                   "Upload Medicine Picture"
@@ -310,6 +310,7 @@ const Medicinetabs = () => {
                 value={payload.name}
                 onChange={handleChange}
               />
+
               <select
                 className="medicine-input"
                 name="brand"
@@ -317,13 +318,13 @@ const Medicinetabs = () => {
                 onChange={handleChange}
               >
                 <option value="">Select Brand</option>
-
-                {medicineBrands?.map((brand) => (
+                {medicineBrands.map((brand) => (
                   <option key={brand} value={brand}>
                     {brand}
                   </option>
                 ))}
               </select>
+
               <input
                 className="medicine-input"
                 name="price"
@@ -332,6 +333,7 @@ const Medicinetabs = () => {
                 value={payload.price}
                 onChange={handleChange}
               />
+
               <input
                 className="medicine-input"
                 name="countInStock"
@@ -348,7 +350,6 @@ const Medicinetabs = () => {
                 onChange={handleChange}
               >
                 <option value="">Select Category</option>
-
                 {medicineCategories.map((category) => (
                   <option key={category} value={category}>
                     {category}
@@ -365,16 +366,18 @@ const Medicinetabs = () => {
               />
 
               <button className="medicine-btn" type="submit">
-                {loading ? "Adding..." : "Add Medicine"}
+                Add Medicine
               </button>
             </form>
           )}
 
-          {loading ? null : medicineData.length > 0 ? (
+          {/* 🔥 MAIN CONDITION */}
+          {medicineData.length === 0 ? (
+            <Error message="No Medicine Found" />
+          ) : (
             <>
-              {" "}
               <h2>Manage Medicines</h2>
-              {/* TABLE */}
+
               <div className="table-wrapper">
                 <table className="medicines-table">
                   <thead>
@@ -395,157 +398,25 @@ const Medicinetabs = () => {
                     {medicineData.map((med) => (
                       <tr key={med._id}>
                         <td>
-                          {editingId === med._id ? (
-                            <>
-                              <label className="image-upload">
-                                {preview ? (
-                                  <img src={preview} alt="preview" />
-                                ) : (
-                                  "Change"
-                                )}
-                                <input
-                                  type="file"
-                                  hidden
-                                  onChange={handleUploadImage}
-                                />
-                              </label>
-                            </>
-                          ) : (
-                            <img
-                              src={med.image?.url ? med.image?.url : med.image}
-                              alt="med"
-                              width="120"
-                            />
-                          )}
+                          <img
+                            src={med.image?.url || med.image}
+                            alt="med"
+                            width="120"
+                          />
                         </td>
-
-                        <td
-                          style={{
-                            maxWidth: "200px",
-                            whiteSpace: "nowrap",
-                            overflow: "hidden",
-                            textOverflow: "ellipsis",
-                          }}
-                        >
-                          {editingId === med._id ? (
-                            <textarea
-                              className="medicine-textarea"
-                              value={med.description}
-                              onChange={(e) =>
-                                handleMedicineChange(e, "description", med._id)
-                              }
-                            />
-                          ) : (
-                            med.description
-                          )}
-                        </td>
+                        <td>{med.description}</td>
+                        <td>{med.name}</td>
+                        <td>{med.brand}</td>
+                        <td>{med.countInStock}</td>
+                        <td>{med.price}</td>
+                        <td>{med.category}</td>
                         <td>
-                          {editingId === med._id ? (
-                            <input
-                              className="medicine-input"
-                              value={med.name}
-                              onChange={(e) =>
-                                handleMedicineChange(e, "name", med._id)
-                              }
-                            />
-                          ) : (
-                            med.name
-                          )}
-                        </td>
-                        <td>
-                          {editingId === med._id ? (
-                            <select
-                              className="medicine-input"
-                              value={med.brand}
-                              onChange={(e) =>
-                                handleMedicineChange(e, "brand", med._id)
-                              }
-                            >
-                              <option value="">Select Brand</option>
-
-                              {medicineBrands.map((brand) => (
-                                <option key={brand} value={brand}>
-                                  {brand}
-                                </option>
-                              ))}
-                            </select>
-                          ) : (
-                            med.brand
-                          )}
-                        </td>
-                        <td>
-                          {editingId === med._id ? (
-                            <input
-                              className="medicine-input"
-                              value={med.countInStock}
-                              onChange={(e) =>
-                                handleMedicineChange(e, "countInStock", med._id)
-                              }
-                            />
-                          ) : (
-                            med.countInStock
-                          )}
-                        </td>
-                        <td>
-                          {editingId === med._id ? (
-                            <input
-                              className="medicine-input"
-                              value={med.price}
-                              onChange={(e) =>
-                                handleMedicineChange(e, "price", med._id)
-                              }
-                            />
-                          ) : (
-                            med.price
-                          )}
-                        </td>
-                        <td>
-                          {editingId === med._id ? (
-                            <select
-                              className="medicine-input"
-                              value={med.category}
-                              onChange={(e) =>
-                                handleMedicineChange(e, "category", med._id)
-                              }
-                            >
-                              <option value="">Select Category</option>
-
-                              {medicineCategories.map((cat) => (
-                                <option key={cat} value={cat}>
-                                  {cat}
-                                </option>
-                              ))}
-                            </select>
-                          ) : (
-                            med.category
-                          )}
-                        </td>
-
-                        <td>
-                          {editingId === med._id ? (
-                            <>
-                              <button
-                                className="medicine-btn"
-                                onClick={() => handleSaveMedicine(med._id)}
-                              >
-                                Save
-                              </button>
-
-                              <button
-                                className="medicine-btn"
-                                onClick={() => EditresetForm()}
-                              >
-                                cancel
-                              </button>
-                            </>
-                          ) : (
-                            <button
-                              className="medicine-btn"
-                              onClick={() => setEditingId(med._id)}
-                            >
-                              Edit
-                            </button>
-                          )}
+                          <button
+                            className="medicine-btn"
+                            onClick={() => setEditingId(med._id)}
+                          >
+                            Edit
+                          </button>
                           <button
                             className="medicine-btn delete"
                             onClick={() => handleDeleteMedicine(med._id)}
@@ -553,7 +424,6 @@ const Medicinetabs = () => {
                             Delete
                           </button>
                         </td>
-
                         <td>
                           {med.createdAt
                             ? new Date(med.createdAt).toLocaleString("en-IN")
@@ -564,14 +434,13 @@ const Medicinetabs = () => {
                   </tbody>
                 </table>
               </div>
+
               <Pagination
                 totalPages={totalPages}
                 currentPage={currentPage}
                 handlePageChange={setCurrentPage}
               />
             </>
-          ) : (
-            <Error message="No Medicine Found" />
           )}
         </div>
       )}
