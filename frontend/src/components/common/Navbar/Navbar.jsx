@@ -17,8 +17,8 @@ const Navbar = () => {
   const { user } = useSelector((state) => state.users);
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
     window.location.href = "/login";
+    localStorage.removeItem("token");
   };
 
   useEffect(() => {
@@ -33,10 +33,8 @@ const Navbar = () => {
         setMenuOpen(false);
       }
     };
-
     // Run once on mount
     handleResize();
-
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
