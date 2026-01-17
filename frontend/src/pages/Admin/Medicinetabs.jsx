@@ -118,11 +118,11 @@ const Medicinetabs = () => {
   const [payload, setPayload] = useState(initialPayload);
   const [medicineData, setMedicineData] = useState([]);
   const [editingId, setEditingId] = useState(null);
-  const [medicineBrand, setMedicineBrand] = useState([]);
+  // const [medicineBrand, setMedicineBrand] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(SetLoader(true));
+    // dispatch(SetLoader(true));
     try {
       const formData = new FormData();
       Object.keys(payload).forEach((key) => formData.append(key, payload[key]));
@@ -146,14 +146,15 @@ const Medicinetabs = () => {
       }
     } catch (error) {
       console.error("Add Medicine Error:", error);
-    } finally {
-      dispatch(SetLoader(false));
     }
+    // finally {
+    //   // dispatch(SetLoader(false));
+    // }
   };
 
   // ================= GET MEDICINES =================
   const handlegetmedicine = async () => {
-    dispatch(SetLoader(true))
+    dispatch(SetLoader(true));
     try {
       const response = await axios.get(
         `${
@@ -169,12 +170,12 @@ const Medicinetabs = () => {
       if (response.data) {
         setMedicineData(response.data.Medicines);
         setTotalPages(response.data.pages);
-        setMedicineBrand(response.data.brandList);
+        // setMedicineBrand(response.data.brandList);
       }
     } catch (error) {
       console.log(error?.message);
-    } finally{
-      dispatch(SetLoader(false))
+    } finally {
+      dispatch(SetLoader(false));
     }
   };
 
@@ -270,307 +271,311 @@ const Medicinetabs = () => {
   };
 
   return (
-    <div className="medicines-content">
-      {!showMedicineForm && (
-        <button
-          className="medicine-btn"
-          onClick={() => setShowMedicineForm(!showMedicineForm)}
-        >
-          Add Medicine
-        </button>
-      )}
-      {showMedicineForm && (
-        <button className="medicine-btn" onClick={() => resetForm()}>
-          Close Form
-        </button>
-      )}
-      {showMedicineForm && (
-        <form className="medicine-form" onSubmit={handleSubmit}>
-          <label className="image-upload">
-            {loading ? (
-              <MedicineLoader loading={loading} />
-            ) : preview ? (
-              <img src={preview} alt="preview" />
-            ) : (
-              "Upload Medicine Picture"
-            )}
-            <input type="file" hidden onChange={handleUploadImage} />
-          </label>
-
-          <input
-            type="text"
-            className="medicine-input"
-            name="name"
-            placeholder="Name"
-            value={payload.name}
-            onChange={handleChange}
-          />
-          <select
-            className="medicine-input"
-            name="brand"
-            value={payload.brand}
-            onChange={handleChange}
-          >
-            <option value="">Select Brand</option>
-
-            {medicineBrands?.map((brand) => (
-              <option key={brand} value={brand}>
-                {brand}
-              </option>
-            ))}
-          </select>
-          <input
-            className="medicine-input"
-            name="price"
-            type="number"
-            placeholder="Price"
-            value={payload.price}
-            onChange={handleChange}
-          />
-          <input
-            className="medicine-input"
-            name="countInStock"
-            type="number"
-            placeholder="Stock"
-            value={payload.countInStock}
-            onChange={handleChange}
-          />
-
-          <select
-            className="medicine-input"
-            name="category"
-            value={payload.category}
-            onChange={handleChange}
-          >
-            <option value="">Select Category</option>
-
-            {medicineCategories.map((category) => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            ))}
-          </select>
-
-          <textarea
-            className="medicine-textarea"
-            name="description"
-            placeholder="Description"
-            value={payload.description}
-            onChange={handleChange}
-          />
-
-          <button className="medicine-btn" type="submit">
-            {loading ? "Adding..." : "Add Medicine"}
-          </button>
-        </form>
-      )}
-
-      {loading ? null : medicineData.length > 0 ? (
-        <>
-          {" "}
-          <h2>Manage Medicines</h2>
-          {/* TABLE */}
-          <div className="table-wrapper">
-            <table className="medicines-table">
-              <thead>
-                <tr>
-                  <th>Image</th>
-                  <th>Description</th>
-                  <th>Name</th>
-                  <th>Brand</th>
-                  <th>Stock</th>
-                  <th>Price</th>
-                  <th>Category</th>
-                  <th>Action</th>
-                  <th>Date</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                {medicineData.map((med) => (
-                  <tr key={med._id}>
-                    <td>
-                      {editingId === med._id ? (
-                        <>
-                          <label className="image-upload">
-                            {preview ? (
-                              <img src={preview} alt="preview" />
-                            ) : (
-                              "Change"
-                            )}
-                            <input
-                              type="file"
-                              hidden
-                              onChange={handleUploadImage}
-                            />
-                          </label>
-                        </>
-                      ) : (
-                        <img
-                          src={med.image?.url ? med.image?.url : med.image}
-                          alt="med"
-                          width="120"
-                        />
-                      )}
-                    </td>
-
-                    <td
-                      style={{
-                        maxWidth: "200px",
-                        whiteSpace: "nowrap",
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                      }}
-                    >
-                      {editingId === med._id ? (
-                        <textarea
-                          className="medicine-textarea"
-                          value={med.description}
-                          onChange={(e) =>
-                            handleMedicineChange(e, "description", med._id)
-                          }
-                        />
-                      ) : (
-                        med.description
-                      )}
-                    </td>
-                    <td>
-                      {editingId === med._id ? (
-                        <input
-                          className="medicine-input"
-                          value={med.name}
-                          onChange={(e) =>
-                            handleMedicineChange(e, "name", med._id)
-                          }
-                        />
-                      ) : (
-                        med.name
-                      )}
-                    </td>
-                    <td>
-                      {editingId === med._id ? (
-                        <select
-                          className="medicine-input"
-                          value={med.brand}
-                          onChange={(e) =>
-                            handleMedicineChange(e, "brand", med._id)
-                          }
-                        >
-                          <option value="">Select Brand</option>
-
-                          {medicineBrands.map((brand) => (
-                            <option key={brand} value={brand}>
-                              {brand}
-                            </option>
-                          ))}
-                        </select>
-                      ) : (
-                        med.brand
-                      )}
-                    </td>
-                    <td>
-                      {editingId === med._id ? (
-                        <input
-                          className="medicine-input"
-                          value={med.countInStock}
-                          onChange={(e) =>
-                            handleMedicineChange(e, "countInStock", med._id)
-                          }
-                        />
-                      ) : (
-                        med.countInStock
-                      )}
-                    </td>
-                    <td>
-                      {editingId === med._id ? (
-                        <input
-                          className="medicine-input"
-                          value={med.price}
-                          onChange={(e) =>
-                            handleMedicineChange(e, "price", med._id)
-                          }
-                        />
-                      ) : (
-                        med.price
-                      )}
-                    </td>
-                    <td>
-                      {editingId === med._id ? (
-                        <select
-                          className="medicine-input"
-                          value={med.category}
-                          onChange={(e) =>
-                            handleMedicineChange(e, "category", med._id)
-                          }
-                        >
-                          <option value="">Select Category</option>
-
-                          {medicineCategories.map((cat) => (
-                            <option key={cat} value={cat}>
-                              {cat}
-                            </option>
-                          ))}
-                        </select>
-                      ) : (
-                        med.category
-                      )}
-                    </td>
-
-                    <td>
-                      {editingId === med._id ? (
-                        <>
-                          <button
-                            className="medicine-btn"
-                            onClick={() => handleSaveMedicine(med._id)}
-                          >
-                            Save
-                          </button>
-
-                          <button
-                            className="medicine-btn"
-                            onClick={() => EditresetForm()}
-                          >
-                            cancel
-                          </button>
-                        </>
-                      ) : (
-                        <button
-                          className="medicine-btn"
-                          onClick={() => setEditingId(med._id)}
-                        >
-                          Edit
-                        </button>
-                      )}
-                      <button
-                        className="medicine-btn delete"
-                        onClick={() => handleDeleteMedicine(med._id)}
-                      >
-                        Delete
-                      </button>
-                    </td>
-
-                    <td>
-                      {med.createdAt
-                        ? new Date(med.createdAt).toLocaleString("en-IN")
-                        : "—"}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <Pagination
-            totalPages={totalPages}
-            currentPage={currentPage}
-            handlePageChange={setCurrentPage}
-          />
-        </>
+    <>
+      {loading ? (
+        <MedicineLoader />
       ) : (
-        <Error
-          message="No Medicine Found"
-        />
+        <div className="medicines-content">
+          {!showMedicineForm && (
+            <button
+              className="medicine-btn"
+              onClick={() => setShowMedicineForm(!showMedicineForm)}
+            >
+              Add Medicine
+            </button>
+          )}
+          {showMedicineForm && (
+            <button className="medicine-btn" onClick={() => resetForm()}>
+              Close Form
+            </button>
+          )}
+          {showMedicineForm && (
+            <form className="medicine-form" onSubmit={handleSubmit}>
+              <label className="image-upload">
+                {loading ? (
+                  <MedicineLoader loading={loading} />
+                ) : preview ? (
+                  <img src={preview} alt="preview" />
+                ) : (
+                  "Upload Medicine Picture"
+                )}
+                <input type="file" hidden onChange={handleUploadImage} />
+              </label>
+
+              <input
+                type="text"
+                className="medicine-input"
+                name="name"
+                placeholder="Name"
+                value={payload.name}
+                onChange={handleChange}
+              />
+              <select
+                className="medicine-input"
+                name="brand"
+                value={payload.brand}
+                onChange={handleChange}
+              >
+                <option value="">Select Brand</option>
+
+                {medicineBrands?.map((brand) => (
+                  <option key={brand} value={brand}>
+                    {brand}
+                  </option>
+                ))}
+              </select>
+              <input
+                className="medicine-input"
+                name="price"
+                type="number"
+                placeholder="Price"
+                value={payload.price}
+                onChange={handleChange}
+              />
+              <input
+                className="medicine-input"
+                name="countInStock"
+                type="number"
+                placeholder="Stock"
+                value={payload.countInStock}
+                onChange={handleChange}
+              />
+
+              <select
+                className="medicine-input"
+                name="category"
+                value={payload.category}
+                onChange={handleChange}
+              >
+                <option value="">Select Category</option>
+
+                {medicineCategories.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
+
+              <textarea
+                className="medicine-textarea"
+                name="description"
+                placeholder="Description"
+                value={payload.description}
+                onChange={handleChange}
+              />
+
+              <button className="medicine-btn" type="submit">
+                {loading ? "Adding..." : "Add Medicine"}
+              </button>
+            </form>
+          )}
+
+          {loading ? null : medicineData.length > 0 ? (
+            <>
+              {" "}
+              <h2>Manage Medicines</h2>
+              {/* TABLE */}
+              <div className="table-wrapper">
+                <table className="medicines-table">
+                  <thead>
+                    <tr>
+                      <th>Image</th>
+                      <th>Description</th>
+                      <th>Name</th>
+                      <th>Brand</th>
+                      <th>Stock</th>
+                      <th>Price</th>
+                      <th>Category</th>
+                      <th>Action</th>
+                      <th>Date</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    {medicineData.map((med) => (
+                      <tr key={med._id}>
+                        <td>
+                          {editingId === med._id ? (
+                            <>
+                              <label className="image-upload">
+                                {preview ? (
+                                  <img src={preview} alt="preview" />
+                                ) : (
+                                  "Change"
+                                )}
+                                <input
+                                  type="file"
+                                  hidden
+                                  onChange={handleUploadImage}
+                                />
+                              </label>
+                            </>
+                          ) : (
+                            <img
+                              src={med.image?.url ? med.image?.url : med.image}
+                              alt="med"
+                              width="120"
+                            />
+                          )}
+                        </td>
+
+                        <td
+                          style={{
+                            maxWidth: "200px",
+                            whiteSpace: "nowrap",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                          }}
+                        >
+                          {editingId === med._id ? (
+                            <textarea
+                              className="medicine-textarea"
+                              value={med.description}
+                              onChange={(e) =>
+                                handleMedicineChange(e, "description", med._id)
+                              }
+                            />
+                          ) : (
+                            med.description
+                          )}
+                        </td>
+                        <td>
+                          {editingId === med._id ? (
+                            <input
+                              className="medicine-input"
+                              value={med.name}
+                              onChange={(e) =>
+                                handleMedicineChange(e, "name", med._id)
+                              }
+                            />
+                          ) : (
+                            med.name
+                          )}
+                        </td>
+                        <td>
+                          {editingId === med._id ? (
+                            <select
+                              className="medicine-input"
+                              value={med.brand}
+                              onChange={(e) =>
+                                handleMedicineChange(e, "brand", med._id)
+                              }
+                            >
+                              <option value="">Select Brand</option>
+
+                              {medicineBrands.map((brand) => (
+                                <option key={brand} value={brand}>
+                                  {brand}
+                                </option>
+                              ))}
+                            </select>
+                          ) : (
+                            med.brand
+                          )}
+                        </td>
+                        <td>
+                          {editingId === med._id ? (
+                            <input
+                              className="medicine-input"
+                              value={med.countInStock}
+                              onChange={(e) =>
+                                handleMedicineChange(e, "countInStock", med._id)
+                              }
+                            />
+                          ) : (
+                            med.countInStock
+                          )}
+                        </td>
+                        <td>
+                          {editingId === med._id ? (
+                            <input
+                              className="medicine-input"
+                              value={med.price}
+                              onChange={(e) =>
+                                handleMedicineChange(e, "price", med._id)
+                              }
+                            />
+                          ) : (
+                            med.price
+                          )}
+                        </td>
+                        <td>
+                          {editingId === med._id ? (
+                            <select
+                              className="medicine-input"
+                              value={med.category}
+                              onChange={(e) =>
+                                handleMedicineChange(e, "category", med._id)
+                              }
+                            >
+                              <option value="">Select Category</option>
+
+                              {medicineCategories.map((cat) => (
+                                <option key={cat} value={cat}>
+                                  {cat}
+                                </option>
+                              ))}
+                            </select>
+                          ) : (
+                            med.category
+                          )}
+                        </td>
+
+                        <td>
+                          {editingId === med._id ? (
+                            <>
+                              <button
+                                className="medicine-btn"
+                                onClick={() => handleSaveMedicine(med._id)}
+                              >
+                                Save
+                              </button>
+
+                              <button
+                                className="medicine-btn"
+                                onClick={() => EditresetForm()}
+                              >
+                                cancel
+                              </button>
+                            </>
+                          ) : (
+                            <button
+                              className="medicine-btn"
+                              onClick={() => setEditingId(med._id)}
+                            >
+                              Edit
+                            </button>
+                          )}
+                          <button
+                            className="medicine-btn delete"
+                            onClick={() => handleDeleteMedicine(med._id)}
+                          >
+                            Delete
+                          </button>
+                        </td>
+
+                        <td>
+                          {med.createdAt
+                            ? new Date(med.createdAt).toLocaleString("en-IN")
+                            : "—"}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <Pagination
+                totalPages={totalPages}
+                currentPage={currentPage}
+                handlePageChange={setCurrentPage}
+              />
+            </>
+          ) : (
+            <Error message="No Medicine Found" />
+          )}
+        </div>
       )}
-    </div>
+    </>
   );
 };
 
