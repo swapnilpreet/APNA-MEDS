@@ -5,6 +5,7 @@ import "./css/UserTabs.css";
 import { useDispatch, useSelector } from "react-redux";
 import { SetLoader } from "../../redux/LoadingSlice";
 import MedicineLoader from "../../components/common/MedicineLoader";
+import Error from "../../components/common/Error";
 const Usertab = () => {
   const [userData, setUserData] = useState([]);
   const { loading } = useSelector((state) => state?.loaders);
