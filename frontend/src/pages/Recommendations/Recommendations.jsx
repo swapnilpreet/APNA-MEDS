@@ -75,8 +75,7 @@ const Recommendations = () => {
   return (
     <Pagewrapper>
       <div className="recommend-page">
-        <h2>Recommended Medicines</h2>
-
+        <h1>Recommended Medicines</h1>
         <br />
         {/* 🔍 Symptom Search */}
         <div className="symptom-box">

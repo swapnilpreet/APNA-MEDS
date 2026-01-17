@@ -131,9 +131,8 @@ const Profile = () => {
     // }
   };
 
-  const handlepasswordchange = async () => {
+  const handlepasswordchange=async()=>{
     event.preventDefault();
-    // console.log("changePassowrd", changePassowrd);
     try {
       const response = await axios.put(
         `${import.meta.env.VITE_BASEURL}/api/auth/password`,

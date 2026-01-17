@@ -59,7 +59,6 @@ const MedicalHistoryModal = ({
     setPreview(URL.createObjectURL(file));
   };
 
-
   const handleSubmit = async () => {
     try {
       dispatch(SetLoader(true));
@@ -75,7 +74,7 @@ const MedicalHistoryModal = ({
       }
 
       let response;
- 
+
       if (initialData?._id) {
         response = await axios.put(
           `${import.meta.env.VITE_BASEURL}/api/users/medical-history/${
@@ -95,14 +94,14 @@ const MedicalHistoryModal = ({
           payload,
           {
             headers: {
-              Authorization:`Bearer ${localStorage.getItem("token")}`,
-              "Content-Type":"multipart/form-data",
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+              "Content-Type": "multipart/form-data",
             },
           }
         );
       }
 
-      if(response.data?.success) {
+      if (response.data?.success) {
         // console.log("onClose()")
         onClose();
         onSuccess();
@@ -114,87 +113,102 @@ const MedicalHistoryModal = ({
       dispatch(SetLoader(false));
     }
   };
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay">
-      <div className="modal">
-        <h3>{initialData ? "Edit Medical History" : "Add Medical History"}</h3>
+    <>
+      <div className="modal-overlay">
+        <div className="modal">
+          <h3>
+            {initialData ? "Edit Medical History" : "Add Medical History"}
+          </h3>
 
-        <input
-          type="text"
-          placeholder="Condition *"
-          value={formData.condition}
-          onChange={(e) =>
-            setFormData({ ...formData, condition: e.target.value })
-          }
-        />
-
-        <input
-          type="date"
-          value={formData.diagnosisDate}
-          onChange={(e) =>
-            setFormData({ ...formData, diagnosisDate: e.target.value })
-          }
-        />
-
-        {formData.medications.map((med, index) => (
           <input
-            key={index}
             type="text"
-            placeholder="Medication *"
-            value={med}
-            onChange={(e) => {
-              const meds = [...formData.medications];
-              meds[index] = e.target.value;
-              setFormData({ ...formData, medications: meds });
-            }}
+            placeholder="Condition (like I have high fever and body pain...etc) "
+            value={formData.condition}
+            onChange={(e) =>
+              setFormData({ ...formData, condition: e.target.value })
+            }
           />
-        ))}
 
-        <button
-          type="button"
-          onClick={() =>
-            setFormData({
-              ...formData,
-              medications: [...formData.medications, ""],
-            })
-          }
-        >
-          + Add Medication
-        </button>
+          <input
+            type="date"
+            placeholder="DD-MM-YYYYY"
+            value={formData.diagnosisDate}
+            onChange={(e) =>
+              setFormData({ ...formData, diagnosisDate: e.target.value })
+            }
+          />
 
-        <textarea
-          placeholder="Notes"
-          value={formData.notes}
-          onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-        />
+          {formData.medications.map((med, index) => (
+            <input
+              key={index}
+              type="text"
+              placeholder="Medicine (like paracitamol 500mg) "
+              value={med}
+              onChange={(e) => {
+                const meds = [...formData.medications];
+                meds[index] = e.target.value;
+                setFormData({ ...formData, medications: meds });
+              }}
+            />
+          ))}
 
-        <label>Upload Prescription Image</label>
-        <input type="file" accept="image/*" onChange={handleFileChange} />
-
-        {preview && (
-          <img src={preview} alt="Preview" className="prescription-preview" />
-        )}
-
-        {loader && <MedicineLoader />}
-
-        <div className="modal-actions">
-          <button onClick={handleSubmit}>
-            {initialData ? "Save Changes" : "Submit"}
-          </button>
-          <button
-            onClick={() => {
-              resetForm();
-              onClose();
-            }}
+          <button 
+          className="add-btn"
+            onClick={() =>
+              setFormData({
+                ...formData,
+                medications: [...formData.medications, ""],
+              })
+            }
           >
-            Cancel
+          + Add More Medicine
           </button>
+
+          <textarea
+            placeholder="Extra information related your health"
+            value={formData.notes}
+            onChange={(e) =>
+              setFormData({ ...formData, notes: e.target.value })
+            }
+          />
+
+          <label>Upload Prescription Image</label>
+          <input type="file" accept="image/*" onChange={handleFileChange} />
+
+          {preview && (
+            <img src={preview} alt="Preview" className="prescription-preview" />
+          )}
+
+          {loader && <MedicineLoader />}
+
+          <div className="modal-actions">
+            <button className="add-btn"  onClick={handleSubmit}>
+              {initialData ? "Save Changes" : "Submit"}
+            </button>
+            <button
+              onClick={() => {
+                resetForm();
+                onClose();
+              }}
+            >
+              Cancel
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+      {isOpen && <div className="menu-overlay"></div>}
+    </>
   );
 };
 

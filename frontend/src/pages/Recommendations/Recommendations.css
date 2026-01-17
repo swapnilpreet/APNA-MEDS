@@ -2,16 +2,16 @@
   margin: auto;
 }
 
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
+.recommend-page h1 {
+  text-align:center;
+  padding:20px;
 }
 
 .symptom-box {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 30px;
-  justify-content: center;
+  display:flex;
+  gap:10px;
+  margin-bottom:30px;
+  justify-content:center;
 }
 
 .symptom-box input {
