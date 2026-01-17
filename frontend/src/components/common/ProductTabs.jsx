@@ -211,9 +211,14 @@ const ProductTabs = ({ med }) => {
           {medicineReview?.reviews?.map((review) => (
             <div key={review._id} className="review-box">
               {/* User Info */}
+              {/* src={
+            user?.profilePicture?.url
+              ? user?.profilePicture?.url
+              : "https://loremipsum.imgix.net/gPyHKDGI0md4NkRDjs4k8/36be1e73008a0181c1980f727f29d002/avatar-placeholder-generator-500x500.jpg?w=1280&q=60&auto=format,compress"
+          } */}
               <div className="review-user-info">
                 <img
-                  src={review?.user?.profilePicture?.url || "/user.png"}
+                  src={review?.user?.profilePicture?.url || "https://loremipsum.imgix.net/gPyHKDGI0md4NkRDjs4k8/36be1e73008a0181c1980f727f29d002/avatar-placeholder-generator-500x500.jpg?w=1280&q=60&auto=format,compress"}
                   alt="User"
                 />
 

@@ -219,6 +219,7 @@ const Cart = () => {
       // console.log("clear cart response", response);
       if (response?.data?.success) {
         setCartItems([]);
+        handleopenClosed()
         // toast.success(response?.data?.message);
       } else {
         throw new Error(response.message || "Cart clear failed");
@@ -302,16 +303,26 @@ const Cart = () => {
   const handleApplyCouponClick = () => setShowCouponInput(true);
 
   const handleVerifyCoupon = () => {
-    if (couponCode.trim()) {
-      if (couponCode === "SWAPNIL") {
-        toast("Coupon Applied");
-        setAppliedCoupon(couponCode.trim());
-        setCouponCode("");
-        setShowCouponInput(false);
-      } else {
-        toast.error("Wrong Coupon");
-      }
+     const usedCoupon = localStorage.getItem("couponUsed");
+
+  if (usedCoupon) {
+    toast.error("You have already used this coupon");
+    return;
+  }
+
+  if (couponCode.trim()) {
+    if (couponCode === "SWAPNIL") {
+      toast.success("Coupon Applied");
+
+      setAppliedCoupon(couponCode.trim());
+      setCouponCode("");
+      setShowCouponInput(false);
+
+      localStorage.setItem("couponUsed", "true");
+    } else {
+      toast.error("Wrong Coupon");
     }
+  }
   };
 
   const handleopenClosed = () => setOpen((open) => !open);

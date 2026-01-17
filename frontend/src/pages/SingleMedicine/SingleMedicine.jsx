@@ -132,7 +132,7 @@ const SingleMedicine = () => {
                 <div className="medicine-left">
                   <div className="medicine-image-box sticky">
                     <img
-                      src={med?.image.url ? med?.image.url : med?.image}
+                      src={med?.image.url}
                       alt={med?.name}
                     />
                   </div>

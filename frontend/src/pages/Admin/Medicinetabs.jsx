@@ -272,36 +272,41 @@ const Medicinetabs = () => {
 
   return (
     <>
+      {" "}
       {loading ? (
         <MedicineLoader />
       ) : (
         <div className="medicines-content">
-          {/* ADD / CLOSE FORM BUTTON */}
-          {!showMedicineForm ? (
+          {" "}
+          {!showMedicineForm && (
             <button
               className="medicine-btn"
-              onClick={() => setShowMedicineForm(true)}
+              onClick={() => setShowMedicineForm(!showMedicineForm)}
             >
-              Add Medicine
+              {" "}
+              Add Medicine{" "}
             </button>
-          ) : (
-            <button className="medicine-btn" onClick={resetForm}>
-              Close Form
+          )}{" "}
+          {showMedicineForm && (
+            <button className="medicine-btn" onClick={() => resetForm()}>
+              {" "}
+              Close Form{" "}
             </button>
-          )}
-
-          {/* ADD MEDICINE FORM */}
+          )}{" "}
           {showMedicineForm && (
             <form className="medicine-form" onSubmit={handleSubmit}>
+              {" "}
               <label className="image-upload">
-                {preview ? (
+                {" "}
+                {loading ? (
+                  <MedicineLoader loading={loading} />
+                ) : preview ? (
                   <img src={preview} alt="preview" />
                 ) : (
                   "Upload Medicine Picture"
-                )}
-                <input type="file" hidden onChange={handleUploadImage} />
-              </label>
-
+                )}{" "}
+                <input type="file" hidden onChange={handleUploadImage} />{" "}
+              </label>{" "}
               <input
                 type="text"
                 className="medicine-input"
@@ -309,22 +314,22 @@ const Medicinetabs = () => {
                 placeholder="Name"
                 value={payload.name}
                 onChange={handleChange}
-              />
-
+              />{" "}
               <select
                 className="medicine-input"
                 name="brand"
                 value={payload.brand}
                 onChange={handleChange}
               >
-                <option value="">Select Brand</option>
-                {medicineBrands.map((brand) => (
+                {" "}
+                <option value="">Select Brand</option>{" "}
+                {medicineBrands?.map((brand) => (
                   <option key={brand} value={brand}>
-                    {brand}
+                    {" "}
+                    {brand}{" "}
                   </option>
-                ))}
-              </select>
-
+                ))}{" "}
+              </select>{" "}
               <input
                 className="medicine-input"
                 name="price"
@@ -332,8 +337,7 @@ const Medicinetabs = () => {
                 placeholder="Price"
                 value={payload.price}
                 onChange={handleChange}
-              />
-
+              />{" "}
               <input
                 className="medicine-input"
                 name="countInStock"
@@ -341,109 +345,252 @@ const Medicinetabs = () => {
                 placeholder="Stock"
                 value={payload.countInStock}
                 onChange={handleChange}
-              />
-
+              />{" "}
               <select
                 className="medicine-input"
                 name="category"
                 value={payload.category}
                 onChange={handleChange}
               >
-                <option value="">Select Category</option>
+                {" "}
+                <option value="">Select Category</option>{" "}
                 {medicineCategories.map((category) => (
                   <option key={category} value={category}>
-                    {category}
+                    {" "}
+                    {category}{" "}
                   </option>
-                ))}
-              </select>
-
+                ))}{" "}
+              </select>{" "}
               <textarea
                 className="medicine-textarea"
                 name="description"
                 placeholder="Description"
                 value={payload.description}
                 onChange={handleChange}
-              />
-
+              />{" "}
               <button className="medicine-btn" type="submit">
-                Add Medicine
-              </button>
+                {" "}
+                {loading ? "Adding..." : "Add Medicine"}{" "}
+              </button>{" "}
             </form>
-          )}
-
-          {/* 🔥 MAIN CONDITION */}
-          {medicineData.length === 0 ? (
-            <Error message="No Medicine Found" />
-          ) : (
+          )}{" "}
+          {loading ? null : medicineData.length > 0 ? (
             <>
-              <h2>Manage Medicines</h2>
-
+              {" "}
+              <h2>Manage Medicines</h2> {/* TABLE */}{" "}
               <div className="table-wrapper">
+                {" "}
                 <table className="medicines-table">
+                  {" "}
                   <thead>
+                    {" "}
                     <tr>
-                      <th>Image</th>
-                      <th>Description</th>
-                      <th>Name</th>
-                      <th>Brand</th>
-                      <th>Stock</th>
-                      <th>Price</th>
-                      <th>Category</th>
-                      <th>Action</th>
-                      <th>Date</th>
-                    </tr>
-                  </thead>
-
+                      {" "}
+                      <th>Image</th> <th>Description</th> <th>Name</th>{" "}
+                      <th>Brand</th> <th>Stock</th> <th>Price</th>{" "}
+                      <th>Category</th> <th>Action</th> <th>Date</th>{" "}
+                    </tr>{" "}
+                  </thead>{" "}
                   <tbody>
+                    {" "}
                     {medicineData.map((med) => (
                       <tr key={med._id}>
+                        {" "}
                         <td>
-                          <img
-                            src={med.image?.url || med.image}
-                            alt="med"
-                            width="120"
-                          />
-                        </td>
-                        <td>{med.description}</td>
-                        <td>{med.name}</td>
-                        <td>{med.brand}</td>
-                        <td>{med.countInStock}</td>
-                        <td>{med.price}</td>
-                        <td>{med.category}</td>
+                          {" "}
+                          {editingId === med._id ? (
+                            <>
+                              {" "}
+                              <label className="image-upload">
+                                {" "}
+                                {preview ? (
+                                  <img src={preview} alt="preview" />
+                                ) : (
+                                  "Change"
+                                )}{" "}
+                                <input
+                                  type="file"
+                                  hidden
+                                  onChange={handleUploadImage}
+                                />{" "}
+                              </label>{" "}
+                            </>
+                          ) : (
+                            <img
+                              src={med.image?.url ? med.image?.url : med.image}
+                              alt="med"
+                              width="120"
+                            />
+                          )}{" "}
+                        </td>{" "}
+                        <td
+                          style={{
+                            maxWidth: "200px",
+                            whiteSpace: "nowrap",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                          }}
+                        >
+                          {" "}
+                          {editingId === med._id ? (
+                            <textarea
+                              className="medicine-textarea"
+                              value={med.description}
+                              onChange={(e) =>
+                                handleMedicineChange(e, "description", med._id)
+                              }
+                            />
+                          ) : (
+                            med.description
+                          )}{" "}
+                        </td>{" "}
                         <td>
-                          <button
-                            className="medicine-btn"
-                            onClick={() => setEditingId(med._id)}
-                          >
-                            Edit
-                          </button>
+                          {" "}
+                          {editingId === med._id ? (
+                            <input
+                              className="medicine-input"
+                              value={med.name}
+                              onChange={(e) =>
+                                handleMedicineChange(e, "name", med._id)
+                              }
+                            />
+                          ) : (
+                            med.name
+                          )}{" "}
+                        </td>{" "}
+                        <td>
+                          {" "}
+                          {editingId === med._id ? (
+                            <select
+                              className="medicine-input"
+                              value={med.brand}
+                              onChange={(e) =>
+                                handleMedicineChange(e, "brand", med._id)
+                              }
+                            >
+                              {" "}
+                              <option value="">Select Brand</option>{" "}
+                              {medicineBrands.map((brand) => (
+                                <option key={brand} value={brand}>
+                                  {" "}
+                                  {brand}{" "}
+                                </option>
+                              ))}{" "}
+                            </select>
+                          ) : (
+                            med.brand
+                          )}{" "}
+                        </td>{" "}
+                        <td>
+                          {" "}
+                          {editingId === med._id ? (
+                            <input
+                              className="medicine-input"
+                              value={med.countInStock}
+                              onChange={(e) =>
+                                handleMedicineChange(e, "countInStock", med._id)
+                              }
+                            />
+                          ) : (
+                            med.countInStock
+                          )}{" "}
+                        </td>{" "}
+                        <td>
+                          {" "}
+                          {editingId === med._id ? (
+                            <input
+                              className="medicine-input"
+                              value={med.price}
+                              onChange={(e) =>
+                                handleMedicineChange(e, "price", med._id)
+                              }
+                            />
+                          ) : (
+                            med.price
+                          )}{" "}
+                        </td>{" "}
+                        <td>
+                          {" "}
+                          {editingId === med._id ? (
+                            <select
+                              className="medicine-input"
+                              value={med.category}
+                              onChange={(e) =>
+                                handleMedicineChange(e, "category", med._id)
+                              }
+                            >
+                              {" "}
+                              <option value="">Select Category</option>{" "}
+                              {medicineCategories.map((cat) => (
+                                <option key={cat} value={cat}>
+                                  {" "}
+                                  {cat}{" "}
+                                </option>
+                              ))}{" "}
+                            </select>
+                          ) : (
+                            med.category
+                          )}{" "}
+                        </td>{" "}
+                        <td>
+                          {" "}
+                          {editingId === med._id ? (
+                            <>
+                              {" "}
+                              <button
+                                className="medicine-btn"
+                                onClick={() => handleSaveMedicine(med._id)}
+                              >
+                                {" "}
+                                Save{" "}
+                              </button>{" "}
+                              <button
+                                className="medicine-btn"
+                                onClick={() => EditresetForm()}
+                              >
+                                {" "}
+                                cancel{" "}
+                              </button>{" "}
+                            </>
+                          ) : (
+                            <button
+                              className="medicine-btn"
+                              onClick={() => setEditingId(med._id)}
+                            >
+                              {" "}
+                              Edit{" "}
+                            </button>
+                          )}{" "}
                           <button
                             className="medicine-btn delete"
                             onClick={() => handleDeleteMedicine(med._id)}
                           >
-                            Delete
-                          </button>
-                        </td>
+                            {" "}
+                            Delete{" "}
+                          </button>{" "}
+                        </td>{" "}
                         <td>
+                          {" "}
                           {med.createdAt
                             ? new Date(med.createdAt).toLocaleString("en-IN")
-                            : "—"}
-                        </td>
+                            : "—"}{" "}
+                        </td>{" "}
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-
+                    ))}{" "}
+                  </tbody>{" "}
+                </table>{" "}
+              </div>{" "}
               <Pagination
                 totalPages={totalPages}
                 currentPage={currentPage}
                 handlePageChange={setCurrentPage}
-              />
+              />{" "}
             </>
-          )}
+          ) : (
+            <Error message="No Medicine Found" />
+          )}{" "}
         </div>
-      )}
+      )}{" "}
     </>
   );
 };
