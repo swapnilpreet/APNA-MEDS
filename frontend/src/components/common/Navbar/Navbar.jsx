@@ -137,7 +137,7 @@ const Navbar = () => {
 
         <hr />
         {(isDestop || (isMobile && menuOpen)) && (
-          <BottomNavbar user={user} isLoggedIn={isLoggedIn} />
+          <BottomNavbar user={user}/>
         )}
       </div>
 

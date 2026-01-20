@@ -10,17 +10,14 @@ const menuItems = [
 ];
 import "../../css/Navbar.css";
 
-const BottomNavbar=({user,isLoggedIn})=>{
+const BottomNavbar=({user})=>{
     return (
         <>
          {user && (
           <div className={`dropdown-menu ${user ? "open" : ""}`}>
             <div className="navbar-links-mobile mobile-only">
               <Link to="#">Download App</Link>
-              {!isLoggedIn && <Link to="/login">Login / Signup</Link>}
-              <Link to="/cart">Cart</Link>
             </div>
-
             <div className="navbar-bottom">
               {menuItems.map((item, index) => (
                 <div key={index} className="nav-item">

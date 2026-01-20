@@ -16,14 +16,9 @@ import axios from "axios";
 const SingleMedicine = () => {
   const { id } = useParams();
   const [medicine, setmedicine] = useState();
-  // const [recomandationmed, setrecomandationmed] = useState();
-  // const [showrecommendation, setshowrecommendation] = useState(false);
-
   const { user } = useSelector((state) => state.users);
   const dispatch = useDispatch();
-
-  const formatPrice = (price) =>
-    price < 100 ? price.toFixed(2) : Math.round(price);
+  const formatPrice = (price) =>price < 100 ? price.toFixed(2) : Math.round(price);
   const deliveryDate = new Date();
   deliveryDate.setDate(deliveryDate.getDate() + 5);
   const deliveryFormatted = deliveryDate.toLocaleDateString("en-IN", {
@@ -55,25 +50,6 @@ const SingleMedicine = () => {
       console.log(error.message);
     }
   };
-
-  // const fetchrecommendation = async () => {
-  //   try {
-  //     const response = await axios.get(
-  //       `${import.meta.env.VITE_BASEURL}/api/recommendations/`,
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${localStorage.getItem("token")}`,
-  //         },
-  //       }
-  //     );
-  //     console.log("recomandation", response);
-  //     if (response.data.success) {
-  //       setrecomandationmed(response.data.data);
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   const AddtoCart = async (medicineId) => {
     try {
