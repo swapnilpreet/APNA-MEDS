@@ -34,7 +34,7 @@ const slides = [
     bgColor: "#efefef",
   },
   {
-    heading: "Deermatologist Recommended brand",
+    heading: "Dermatologist Recommended brand",
     image: "https://res.cloudinary.com/dejqyvuqj/image/upload/v1767762320/Banner-apna-med/BannerImage_3_vxlunv.avif",
     bgColor: "#e7e7e7",
   },

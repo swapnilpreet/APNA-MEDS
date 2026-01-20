@@ -29,7 +29,7 @@ const Signup = () => {
     try {
       const { data } = await axios.post(
         `${import.meta.env.VITE_BASEURL}/api/auth/register`,
-        formData
+        formData,
       );
       if (data.success) {
         toast.success(data.message);
@@ -42,19 +42,104 @@ const Signup = () => {
         toast.error(data.message || "Signup failed");
       }
     } catch (error) {
-      dispatch(SetLoader(false));
       toast.error(error?.response?.data?.message || "Something went wrong ❌");
+    } finally {
+      dispatch(SetLoader(false));
     }
   };
 
-  const sendMail=async(user)=>{
+  const sendMail = async (user) => {
     const verifyUrl = `https://apna-meds.vercel.app/verifyemail?token=${user.verificationToken}`;
-    const htmlContent = `
-    <h2>Welcome,${user.name}!</h2>
-    <p>Click the link below to verify your email and activate your account</p>
-    <a href="${verifyUrl}" target="_blank">Verify Email</a>
-    <p>If you did not register, please ignore this email.</p>
-  `;
+    const htmlContent = `<div style="width: 600px; margin: 0 auto;">
+
+        <div
+          style="
+            background: linear-gradient(135deg, #0a7cff, #0047b3);
+            color: #ffffff;
+            padding: 30px;
+            text-align: center;
+          "
+        >
+          <h1 style="margin: 0; font-size: 28px; font-weight: 600">
+            Verify Your Email
+          </h1>
+          <p style="margin: 6px 0 0; font-size: 16px; opacity: 0.9">
+            One last step to activate your account
+          </p>
+        </div>
+        <!-- Body -->
+        <div style="padding: 25px 30px">
+          <h2
+            style="
+              color: #0a7cff;
+              font-size: 22px;
+              font-weight: 600;
+              margin-top: 0;
+            "
+          >
+            Hello ${user.name},
+          </h2>
+          <p style="font-size: 16px">
+            Thank you for signing up with <b>Apna Meds</b>. To complete your
+            registration and keep your account secure, please verify your email
+            address.
+          </p>
+          <!-- Verify Button -->
+          <div style="text-align: center; margin: 30px 0">
+            <a
+              href="${verifyUrl}"
+              target="_blank"
+              style="
+                background: #0a7cff;
+                color: #ffffff;
+                text-decoration: none;
+                padding: 14px 34px;
+                border-radius: 8px;
+                font-size: 16px;
+                font-weight: 600;
+                display: inline-block;
+              "
+            >
+              Verify Email Address
+            </a>
+          </div>
+          <p style="font-size: 14px; color: #666666">
+            If the button above doesn’t work, copy and paste the link below into
+            your browser:
+          </p>
+          <p style="font-size: 13px; color: #0a7cff; word-break: break-all">
+            ${verifyUrl}
+          </p>
+          <hr
+            style="border: none; border-top: 1px solid #e0e0e0; margin: 25px 0"
+          />
+          <p style="font-size: 14px; color: #777777">
+            ⏰ This verification link is valid for <b>24 hours</b>.
+          </p>
+          <p style="font-size: 13px; color: #888888">
+            If you did not create an account with Apna Meds, you can safely ignore
+            this email. No further action is required.
+          </p>
+        </div>
+        <!-- Footer -->
+        <div
+          style="
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: #888888;
+            border-top: 1px solid #eeeeee;
+          "
+        >
+          <p style="margin: 0">Need help? Contact our support team anytime.</p>
+          <p style="margin: 0">
+            &copy; ${new Date().getFullYear()} Apna Meds. All rights reserved.
+          </p>
+          <p style="margin: 10px 0 0">Thank you for choosing <b>Apna Meds</b> ❤️</p>
+        </div>
+      </div>
+    `;
 
     try {
       const response = await fetch(
@@ -69,7 +154,7 @@ const Signup = () => {
             subject: "Verify Email From - Apna-Meds",
             html: htmlContent,
           }),
-        }
+        },
       );
 
       const data = await response.json();
@@ -77,8 +162,6 @@ const Signup = () => {
       if (!response.ok) {
         throw new Error(data.message || "Failed to send email");
       }
-
-      console.log("Email sent:", data);
       alert("Email sent successfully 🚀");
     } catch (error) {
       console.error("Send mail error:", error);

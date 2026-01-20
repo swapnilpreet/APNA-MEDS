@@ -46,10 +46,10 @@ const SingleMedicine = () => {
 
       if (data.success) {
         setmedicine(data.medicine);
-        fetchrecommendation();
-        setTimeout(() => {
-          setshowrecommendation(true);
-        }, 5000);
+        // fetchrecommendation();
+        // setTimeout(() => {
+        //   setshowrecommendation(true);
+        // }, 5000);
       }
     } catch (error) {
       console.log(error.message);

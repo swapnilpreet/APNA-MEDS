@@ -42,14 +42,14 @@ const Profile = () => {
 
   const getcurrentUser = async () => {
     try {
-      dispatch(SetLoader(true))
+      dispatch(SetLoader(true));
       const { data } = await axios.get(
         `${import.meta.env.VITE_BASEURL}/api/users/profile`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
-        }
+        },
       );
       if (data.success) {
         setUser(data.data);
@@ -60,10 +60,9 @@ const Profile = () => {
       }
     } catch (err) {
       console.error(err);
-    }finally{
-      dispatch(SetLoader(false))
+    } finally {
+      dispatch(SetLoader(false));
     }
-
   };
 
   const handleUpdateProfile = async (e) => {
@@ -84,13 +83,13 @@ const Profile = () => {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
-        }
+        },
       );
       resetUserModel();
       getcurrentUser();
     } catch (error) {
       console.error("Update failed:", error);
-    } 
+    }
     // finally {
     //   dispatch(SetLoader(false));
     // }
@@ -118,7 +117,7 @@ const Profile = () => {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
-        }
+        },
       );
       if (data.success) {
         getcurrentUser();
@@ -131,7 +130,7 @@ const Profile = () => {
     // }
   };
 
-  const handlepasswordchange=async()=>{
+  const handlepasswordchange = async () => {
     event.preventDefault();
     try {
       const response = await axios.put(
@@ -141,9 +140,8 @@ const Profile = () => {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
-        }
+        },
       );
-      console.log("response", response);
       if (response.data.success) {
         resetpasswordmodal();
         handleLogout();
@@ -191,11 +189,9 @@ const Profile = () => {
         <>
           <ToastContainer position="top-right" autoClose={3000} />
           <Pagewrapper>
-            <div className="page-layout">
+            {/* <div className="page-layout">
               <div className="profile-container">
                 <h2>User Profile</h2>
-
-                {/* --- PROFILE INFORMATION --- */}
                 <div className="profile-info">
                   <img
                     src={
@@ -222,8 +218,6 @@ const Profile = () => {
                     <strong>Contact:</strong> {user?.contactNumber || "N/A"}
                   </p>
                 </div>
-
-                {/* --- MEDICAL HISTORY LIST --- */}
                 {medicalHistory.length > 0 ? (
                   <div className="history-list">
                     <h3>Medical History</h3>
@@ -277,7 +271,6 @@ const Profile = () => {
                   <p style={{ color: "gray" }}>No medical history available.</p>
                 )}
 
-                {/* BUTTON GROUP */}
                 <div className="btn-group">
                   <button
                     className="add-btn"
@@ -296,6 +289,106 @@ const Profile = () => {
                     onClick={() => dispatch(SetShowModel(true))}
                   >
                     Add Medical History
+                  </button>
+                </div>
+              </div>
+            </div> */}
+            <div className="profile-page">
+              <div className="profile-card">
+                <h2 className="page-title">User Profile</h2>
+
+                {/* PROFILE HEADER */}
+                <div className="profile-header">
+                  <div className="profile-img-wrapper">
+                    <img
+                      src={
+                        user?.profilePicture?.url
+                          ? user.profilePicture.url
+                          : "https://loremipsum.imgix.net/gPyHKDGI0md4NkRDjs4k8/36be1e73008a0181c1980f727f29d002/avatar-placeholder-generator-500x500.jpg"
+                      }
+                      alt="Profile"
+                      className="profile-img"
+                      style={{ borderColor: isOnline ? "#22c55e" : "#ef4444" }}
+                    />
+                    <OnlineStatus />
+                  </div>
+
+                  <div className="profile-details">
+                    <p>
+                      <span>Name</span> {user?.name}
+                    </p>
+                    <p>
+                      <span>Email</span> {user?.email}
+                    </p>
+                    <p>
+                      <span>Contact</span> {user?.contactNumber || "N/A"}
+                    </p>
+                  </div>
+                </div>
+
+                {/* MEDICAL HISTORY */}
+                <div className="history-section">
+                  <h3>Medical History</h3>
+
+                  {medicalHistory.length > 0 ? (
+                    medicalHistory.map((item) => (
+                      <div key={item._id} className="history-card">
+                        {item.prescriptionUrl && (
+                          <img
+                            src={
+                              item.prescriptionUrl.url || item.prescriptionUrl
+                            }
+                            alt="Prescription"
+                            className="prescription-img"
+                          />
+                        )}
+
+                        <div className="history-info">
+                          <p className="condition">
+                            {item.condition}
+                            <span>{item.diagnosisDate?.slice(0, 10)}</span>
+                          </p>
+
+                          <p>
+                            <strong>Medicines:</strong>{" "}
+                            {item.medications.join(", ")}
+                          </p>
+                          <p>
+                            <strong>Notes:</strong> {item.notes}
+                          </p>
+
+                          <div className="history-actions">
+                            <button
+                              className="btn edit"
+                              onClick={() => handleEditCondition(item)}
+                            >
+                              Edit
+                            </button>
+                            <button
+                              className="btn delete"
+                              onClick={() => handleDeleteCondition(item._id)}
+                            >
+                              Delete
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <p className="empty-text">No medical history available.</p>
+                  )}
+                </div>
+
+                {/* ACTION BUTTONS */}
+                <div className="action-buttons">
+                  <button onClick={() => setshowpasswordmodal(true)}>
+                    Change Password
+                  </button>
+                  <button onClick={() => setShowUserModal(true)}>
+                    Edit Profile
+                  </button>
+                  <button onClick={() => dispatch(SetShowModel(true))}>
+                    + Add Medical History
                   </button>
                 </div>
               </div>

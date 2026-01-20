@@ -36,6 +36,7 @@ const Login = () => {
       }
     } catch (error) {
       notify(error);
+    }finally{
       dispatch(SetLoader(false));
     }
   };

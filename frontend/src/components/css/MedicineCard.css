@@ -94,21 +94,21 @@
 }
 
 .med-price-box {
-  display: flex;
-  gap: 0.5rem;
+   display: flex;
   align-items: center;
+  gap: 8px;
 }
 
 .med-price {
-  color: #2e7d32;
+  font-size: 18px;
   font-weight: 600;
-  font-size: 1rem;
+  color: #1a7f37;
 }
 
 .med-mrp {
-  color: #999;
-  text-decoration: line-through;
-  font-size: 0.9rem;
+   text-decoration: line-through;
+  color: #888;
+  font-size: 14px;
 }
 .med-actions {
   display: flex;

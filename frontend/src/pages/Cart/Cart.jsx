@@ -25,9 +25,8 @@ const Cart = () => {
   const [selectedAddress, setSelectedAddress] = useState();
   const [hasFetched, setHasFetched] = useState(false);
   const { loading } = useSelector((state) => state.loaders);
-    const { user } = useSelector((state) => state.users);
-    console.log("User",user)
-
+  const { user } = useSelector((state) => state.users);
+ 
   const handlePayment = () => {
     dispatch(SetLoader(true));
     const amountInPaise = parseInt(totals.total * 100);
@@ -94,7 +93,6 @@ const Cart = () => {
           },
         }
       );
-      console.log("place order response", response);
       if (response?.data?.success) {
         sendMail(response.data.data);
         clearCarts();
@@ -104,15 +102,11 @@ const Cart = () => {
       }
     } catch (error) {
       toast.error(error.message || "Something went wrong in Placed Order");
-
-      // toast.error("Something went wrong in Placed Order");
-      // console.log(error);
     }
   };
 
 
   const sendMail = async (data) => {
-    console.log("sendMail",data)
        const orderHtml = `
    <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; padding: 20px; color: #333333; line-height: 1.6;">
   <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.08);">
@@ -198,7 +192,6 @@ const Cart = () => {
     if (!response.ok) {
       throw new Error(data.message || "Failed to send email");
     }
-    console.log("Email sent:", data);
     alert("Email sent successfully 🚀");
   } catch (error) {
     console.error("Send mail error:", error);
@@ -216,11 +209,9 @@ const Cart = () => {
           },
         }
       );
-      // console.log("clear cart response", response);
       if (response?.data?.success) {
         setCartItems([]);
-        handleopenClosed()
-        // toast.success(response?.data?.message);
+        setOpen(false)
       } else {
         throw new Error(response.message || "Cart clear failed");
       }
@@ -239,7 +230,6 @@ const Cart = () => {
           },
         }
       );
-      console.log("get cart response", response);
       if (response?.data.success) {
         const updatedCart = response.data.data.map((item) => ({
           ...item,

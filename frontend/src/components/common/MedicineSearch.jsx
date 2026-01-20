@@ -74,13 +74,9 @@ const MedicineSearch = () => {
         setsuggestionError(false);
         return;
       } else {
-        console.log("API_Search Term:", searchTerm);
         fetchmedicineforsuggestion(searchTerm);
       }
-      console.log("Inside API-Call", searchTerm);
     }, 2000);
-
-    console.log("Clear-Search Term:", searchTerm);
     return () => clearTimeout(timer);
   }, [searchTerm]);
 

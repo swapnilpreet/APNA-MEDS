@@ -13,6 +13,7 @@
   z-index: 999;
   padding: 16px;
   overflow-y: auto;
+  border: 1px solid red;
 }
 
 .slider-panel.open {
@@ -106,7 +107,6 @@ padding: 12px 24px;
 .fixed-section-address {
   height: 380px;
   overflow-y: auto;
-  /* border: 1px solid red; */
 }
 .selectable-card {
   display: flex;
@@ -127,9 +127,6 @@ padding: 12px 24px;
 .address-box {
   width: 80%;
 }
-/* .patient-box {
-  width: 80%;
-} */
 .address-box p {
   font-size: 0.9rem;
   color: #555;
@@ -148,13 +145,10 @@ padding: 12px 24px;
 .footer-dev {
   margin-top: auto;
 }
-/* .footer-dev button {
-  width: 100%;
-  padding: 12px;
-  background: #1976d2;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-} */
+
+@media(max-width:784px){
+  .slider-panel{
+    border: 2px solid green;
+    width: 100%;
+  }
+}

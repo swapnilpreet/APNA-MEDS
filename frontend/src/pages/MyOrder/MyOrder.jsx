@@ -6,6 +6,7 @@ import "./MyOrder.css";
 import { toast, ToastContainer } from "react-toastify";
 import axios from "axios";
 import Error from "../../components/common/Error";
+import { Link } from "react-router-dom";
 
 const steps = ["Packed", "Shipped", "Out for Delivery", "Delivered"];
 
@@ -25,7 +26,7 @@ const MyOrder = () => {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
-          }
+          },
         );
       } else {
         response = await axios.get(
@@ -34,27 +35,26 @@ const MyOrder = () => {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
-          }
+          },
         );
       }
-      console.log("response orders", response);
       if (response.data.success) {
         setOrders(response.data.data);
       }
       toast(response.data.message);
     } catch (error) {
       // toast(error.message);
-      console.log(error)
+      console.log(error);
     }
   };
 
   const getStepIndex = (status) => steps.indexOf(status);
 
   const currentOrders = orders?.filter(
-    (order) => order?.shippingStatus !== "Delivered"
+    (order) => order?.shippingStatus !== "Delivered",
   );
   const completedOrders = orders?.filter(
-    (order) => order?.shippingStatus === "Delivered"
+    (order) => order?.shippingStatus === "Delivered",
   );
 
   const displayedOrders =
@@ -68,6 +68,7 @@ const MyOrder = () => {
 
   return (
     <>
+      {}
       <ToastContainer position="top-right" autoClose={3000} />
       <Pagewrapper>
         <div className="order-container">
@@ -92,16 +93,9 @@ const MyOrder = () => {
               Completed Orders
             </button>
           </div>
-          <div className="order-list">
-            {displayedOrders?.length === 0 ? (
-              // <p>No {activeTab} orders found.</p>
-              <Error
-                message={`No ${activeTab} orders found`}
-                path="/cart"
-                btntext="Place Order"
-              />
-            ) : (
-              displayedOrders?.map((order) => (
+          {displayedOrders && (
+            <div className="order-list">
+              {displayedOrders?.map((order) => (
                 <div
                   key={order._id}
                   className={`order-card ${
@@ -117,9 +111,16 @@ const MyOrder = () => {
                     {new Date(order.createdAt).toLocaleDateString()}
                   </p>
                 </div>
-              ))
-            )}
-          </div>
+              ))}
+            </div>
+          )}
+          {displayedOrders?.length === 0 ? (
+            <Error
+              message={`No ${activeTab} orders found`}
+              path="/cart"
+              btntext="Place Order"
+            />
+          ) : null}
           {selectedOrder && (
             <div className="order-details">
               <h3>Order Details</h3>
@@ -151,7 +152,7 @@ const MyOrder = () => {
                 <strong>Delivered At:</strong>{" "}
                 {selectedOrder?.deliveredAt
                   ? new Date(selectedOrder?.deliveredAt).toLocaleDateString(
-                      "en-GB"
+                      "en-GB",
                     )
                   : "Not Delivered"}
               </p>
@@ -180,21 +181,23 @@ const MyOrder = () => {
               <h4>Products</h4>
               <div className="product-list">
                 {selectedOrder?.orderItems.map((product, index) => (
-                  <div className="product-card" key={index}>
-                    <img src={product.image} alt={product.name} />
-                    <div>
-                      <p>{product.name}</p>
-                      <p>Qty: {product.qty}</p>
-                      <p>Price: ₹{product.price}</p>
+                  <Link to={`/medicine/${product.Medicine}`}  key={index}>
+                    <div className="product-card">
+                      <img src={product.image} alt={product.name} />
+                      <div>
+                        <p>{product.name}</p>
+                        <p>Qty: {product.qty}</p>
+                        <p>Price: ₹{product.price}</p>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
               <h4>Shipping Progress</h4>
               <div className="status-tracker">
                 {steps.map((step, idx) => {
                   const activeIndex = getStepIndex(
-                    selectedOrder?.shippingStatus
+                    selectedOrder?.shippingStatus,
                   );
                   return (
                     <div className="status-step" key={step}>

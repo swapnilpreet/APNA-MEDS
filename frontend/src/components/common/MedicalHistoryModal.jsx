@@ -102,7 +102,6 @@ const MedicalHistoryModal = ({
       }
 
       if (response.data?.success) {
-        // console.log("onClose()")
         onClose();
         onSuccess();
         resetForm();

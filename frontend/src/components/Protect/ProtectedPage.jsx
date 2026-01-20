@@ -22,9 +22,7 @@ const ProtectedRoute = ({ children }) => {
     try {
       const decoded = jwtDecode(token);
       if (decoded.exp * 1000 < Date.now()) {
-        console.log("expire-token");
         localStorage.removeItem("token");
-        // window.location.href = "/login";
         navigate("/login");
         return;
       }

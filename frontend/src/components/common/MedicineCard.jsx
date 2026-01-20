@@ -12,8 +12,8 @@ const MedicineCard = ({
   medicine,
   onCompareToggle,
   isSelected,
-  hide=false,
-})=>{
+  hide = false,
+}) => {
   const notify = (mes) => toast(mes);
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.users);
@@ -33,16 +33,14 @@ const MedicineCard = ({
             authorization: `Bearer ${localStorage.getItem("token")}`,
           },
           withCredentials: true,
-        }
+        },
       );
       if (response) {
         GetCurrUser();
         if (user?.myCarts?.includes(medicine?._id)) {
           notify("Medicine Remove from cart");
-          // alert("Medicine Remove from cart");
         } else {
           notify("Medicine added to cart");
-          // alert("Medicine added to cart");
         }
       } else {
         throw new Error("Failed to add medicine");
@@ -60,7 +58,7 @@ const MedicineCard = ({
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
-        }
+        },
       );
       if (response.data.success) {
         dispatch(SetUser(response.data.data));
@@ -92,26 +90,46 @@ const MedicineCard = ({
             className="med-image"
           />
         </div>
-
         <div className="med-info">
           <h3 className="med-name">{medicine.name}</h3>
-          <div className="med-price-box">
-            {!hide ? (<><span className="med-price">₹{medicine.discountedPrice}</span>
-            <span className="med-mrp">₹{medicine.price}</span></>) : <span className="med-price">₹{(medicine.price * 0.8).toFixed(2)}</span> }
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div className="med-price-box">
+              {medicine.discountPercentage > 0 ? (
+                <>
+                  <span className="med-price">₹{medicine.discountedPrice}</span>
+                  <span className="med-mrp">₹{medicine.price}</span>
+                </>
+              ) : (
+                <>
+                <span className="med-price">₹{(medicine.price * 0.8).toFixed(2)}</span>
+                <span className="med-mrp">₹{medicine.price}</span>
+                </>
+              )}
+            </div>
 
+            <div>
+              {medicine.numReviews > 0 && (
+                <div className="med-reviews">
+                  ⭐ {medicine.rating.toFixed(1)} ({medicine.numReviews}{" "}
+                  reviews)
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
         <div className="med-actions">
-         { !hide ? (<button
-            className={`compare-btn ${isSelected ? "selected" : ""}`}
-            onClick={(e) => {
-              e.stopPropagation();
-              onCompareToggle(medicine);
-            }}
-          >
-            {isSelected ? "Selected" : "Compare"}
-          </button>):null}
+          {!hide ? (
+            <button
+              className={`compare-btn ${isSelected ? "selected" : ""}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                onCompareToggle(medicine);
+              }}
+            >
+              {isSelected ? "Selected" : "Compare"}
+            </button>
+          ) : null}
 
           <button
             className={`add-cart-btn ${
@@ -129,8 +147,8 @@ const MedicineCard = ({
             {medicine?.countInStock === 0
               ? "Out of Stock"
               : user?.myCarts?.includes(medicine?._id)
-              ? "Remove from Cart"
-              : "Add to Cart"}
+                ? "Remove from Cart"
+                : "Add to Cart"}
           </button>
         </div>
       </div>

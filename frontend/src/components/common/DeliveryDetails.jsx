@@ -34,7 +34,6 @@ const DeliveryDetails = ({
         headers: { authorization: `Bearer ${token}` },
         withCredentials: true,
       });
-      // console.log("resp",response)
       setPatients(response.data.data || []);
     } catch (error) {
       console.log("Error fetching patients:", error);

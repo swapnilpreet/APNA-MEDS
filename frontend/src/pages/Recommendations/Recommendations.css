@@ -5,6 +5,7 @@
 .recommend-page h1 {
   text-align:center;
   padding:20px;
+  font-size: 25px;
 }
 
 .symptom-box {
@@ -36,7 +37,7 @@
   box-shadow: 0 12px 9px rgba(2, 77, 143, 0.3);
 }
 
-.symptom-box button  {
+.symptom-box button:hover  {
   transform: translateY(-2px);
   background: linear-gradient(135deg, #0056b3, #0a74da);
 } 
@@ -45,10 +46,17 @@
   text-align: center;
   margin: 10px 0;
 }
+.rec-heading > h3{
+  padding: 10px;
+  text-align: center;
+  color: gray;
+  font-size: 20px;
+}
  
 @media (max-width: 480px) {
   .symptom-box {
     flex-direction: column;
+    padding: 0px 10px;
   }
 
   .symptom-box input {

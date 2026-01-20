@@ -36,10 +36,7 @@ const ProductTabs = ({ med }) => {
   });
   const { user } = useSelector((state) => state.users);
   const [error, setError] = useState(null);
-  console.log("ProductTabs Component - Medicine:", med.name);
-
   const fetchMedicnineReviews = async (id) => {
-    console.log(`Fetching reviews for medicine ID:${id}`);
     try {
       const { data } = await axios.get(`${import.meta.env.VITE_BASEURL}/api/medicine/${id}/reviews`, {
         headers: {
@@ -47,7 +44,6 @@ const ProductTabs = ({ med }) => {
           "Content-Type": "application/json",
         },
       });
-      console.log("Medicine Reviews:", data.reviews);
       if (data?.reviews?.length > 0) {
         setMedicineReview(data);
         setError(null);
@@ -63,7 +59,6 @@ const ProductTabs = ({ med }) => {
   const submitReview = async () => {
     try {
       if (isEditMode) {
-        console.log("Updating review ID:", selectedReviewId);
         await axios.put(
           `${import.meta.env.VITE_BASEURL}/api/medicine/${
             med._id
@@ -118,9 +113,7 @@ const ProductTabs = ({ med }) => {
       rating: review.rating,
       comment: review.comment,
     });
-    // console.log("review._id", review._id);
     setSelectedReviewId(review._id);
-    // console.log("selectedReviewId", selectedReviewId);
     setIsEditMode(true);
     setShowReviewModal(true);
   };

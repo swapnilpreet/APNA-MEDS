@@ -333,6 +333,8 @@ const deleteUser = async (req, res) => {
         .json({ success: false, message: "User not found" });
     }
 
+    // delete user orders,medical history ,images what eever he uploads everything reviews deletes
+  
     await User.deleteOne({ _id: user._id });
 
     return res

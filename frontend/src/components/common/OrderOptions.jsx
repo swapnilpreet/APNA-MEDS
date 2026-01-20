@@ -18,7 +18,7 @@ const OrderOptions = () => {
       </div>
 
       <div className="order-buttons">
-        <div className="order-card">
+        <div className="op-order-card">
           <div className="icon-box">
             <FiPhoneCall className="icon" size={22} />
           </div>
@@ -28,7 +28,7 @@ const OrderOptions = () => {
         </div>
 
         <div
-          className="order-card"
+          className="op-order-card"
           onClick={() => dispatch(SetShowModel(true))}
         >
           <div className="icon-box">

@@ -11,24 +11,26 @@ const UserDropdown = ({ user, handleLogout, setShowUserDropdown }) => {
       onMouseLeave={() => setShowUserDropdown(false)}
     >
       {/* ✅ Profile Section */}
-      <div className="user-profile">
-        <img
-          src={
-            user?.profilePicture?.url
-              ? user?.profilePicture?.url
-              : "https://loremipsum.imgix.net/gPyHKDGI0md4NkRDjs4k8/36be1e73008a0181c1980f727f29d002/avatar-placeholder-generator-500x500.jpg?w=1280&q=60&auto=format,compress"
-          }
-          alt="Profile"
-          className="profile-pic"
-          style={{
-            border: `2px dashed ${isOnline ? "green" : "red"}`,
-          }}
-        />
-        <div>
-          <p className="user-name">{user?.name}</p>
-          <p className="user-phone">{user?.contactNumber}</p>
+      <Link to="/profile">
+        <div className="user-profile">
+          <img
+            src={
+              user?.profilePicture?.url
+                ? user?.profilePicture?.url
+                : "https://loremipsum.imgix.net/gPyHKDGI0md4NkRDjs4k8/36be1e73008a0181c1980f727f29d002/avatar-placeholder-generator-500x500.jpg?w=1280&q=60&auto=format,compress"
+            }
+            alt="Profile"
+            className="profile-pic"
+            style={{
+              border: `2px dashed ${isOnline ? "green" : "red"}`,
+            }}
+          />
+          <div>
+            <p className="user-name">{user?.name}</p>
+            <p className="user-phone">{user?.contactNumber}</p>
+          </div>
         </div>
-      </div>
+      </Link>
 
       <Link to="/profile">Add more user details</Link>
       <hr />

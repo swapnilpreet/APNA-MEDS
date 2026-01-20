@@ -40,7 +40,6 @@ const MedicineList = () => {
           },
         }
       );
-      // console.log("response-medicine",response);
       dispatch(SetLoader(false));
       if(response.data.success) {
         setMedicines(response.data.Medicines);
@@ -97,9 +96,6 @@ const MedicineList = () => {
       setCurrentPage(pageNum);
     }
   };
-
-  console.log("medicines",medicines);
-  
 
   return (
     <>

@@ -77,13 +77,11 @@ const Recommendations = () => {
       <div className="recommend-page">
         <h1>Recommended Medicines</h1>
         <br />
-        {/* 🔍 Symptom Search */}
         <div className="symptom-box">
           <input
             type="text"
             placeholder="Enter symptoms (fever, cough, headache)"
             value={symptoms}
-            // onChange={handleChange}
             onChange={(e) => setSymptoms(e.target.value)}
           />
           <button onClick={fetchBySymptoms}>Search</button>
@@ -92,7 +90,7 @@ const Recommendations = () => {
         {loading && <p className="loading">Loading...</p>}
 
         {/* ⭐ Personalized */}
-        <section>
+        <section className="rec-heading">
           <h3>Personalized For You</h3>
           <div className="medicine-list">
             {personalized.map((med) => (
@@ -103,7 +101,7 @@ const Recommendations = () => {
 
         {/* 🤒 Symptom Based */}
         {symptomResults.length > 0 && (
-          <section>
+          <section className="rec-heading">
             <h3>Based on Symptoms</h3>
             <div className="medicine-list">
               {symptomResults.map((med) => (
