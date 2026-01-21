@@ -1,193 +1,177 @@
-🩺 Apna-Meds – AI-Powered Online Medicine & Healthcare Platform
+<h1>🩺 Apna-Meds – AI-Powered Online Medicine & Healthcare Platform</h1>
 
-Apna-Meds is a production-ready full-stack MERN healthcare platform that enables users to securely purchase medicines online, manage medical history, receive AI-based medicine recommendations, and complete payments, while providing pharmacy admins with a powerful RBAC-enabled admin panel for managing inventory, orders, users, and content at scale.
+<p>
+  Apna-Meds is a <b>production-ready MERN healthcare e-commerce platform</b>
+  that enables secure medicine ordering, AI-based recommendations, online payments,
+  and pharmacy administration with role-based access control.
+</p>
 
-🌐 Live Demo
+<hr/>
 
-🔗 Frontend: (Add deployed URL)
-🔗 Backend API: (Add API URL if public)
+<h2>🌐 Live Demo</h2>
+<ul>
+  <li><b>Frontend:</b> <a href="#">Add Deployed URL</a></li>
+  <li><b>Backend API:</b> <a href="#">Add API URL</a></li>
+</ul>
 
-📸 Screenshots (Highly Important for Recruiters)
+<hr/>
 
-📌 Tip: Recruiters ALWAYS look at screenshots before code.
+<h2>📸 Screenshots</h2>
+<p><i>Recruiters always check screenshots first.</i></p>
 
-🏠 Home & Search
+<h3>🏠 Home & Search</h3>
+<img src="./screenshots/home.png" width="800"/>
 
-🤖 AI Medicine Recommendation
+<h3>🤖 AI Medicine Recommendation</h3>
+<img src="./screenshots/ai-recommendation.png" width="800"/>
 
-🩺 Medical History Management
+<h3>🩺 Medical History</h3>
+<img src="./screenshots/medical-history.png" width="800"/>
 
-🛒 Cart & Checkout
+<h3>🛒 Cart & Checkout</h3>
+<img src="./screenshots/cart.png" width="800"/>
 
-💳 Payment Flow
+<h3>💳 Payment</h3>
+<img src="./screenshots/payment.png" width="800"/>
 
-🧑‍💼 Admin Panel
+<h3>🧑‍💼 Admin Panel</h3>
+<img src="./screenshots/admin-dashboard.png" width="800"/>
 
-👉 Upload images inside a screenshots/ folder in GitHub repo.
+<hr/>
 
-❓ Problem It Solves (Business + Healthcare Pain Points)
+<h2>❓ Problem It Solves</h2>
+<p>
+  The healthcare and pharmacy industry often suffers from fragmented medicine discovery,
+  manual prescription handling, lack of digital medical records, poor inventory visibility,
+  and limited personalization. <b>Apna-Meds solves these problems</b> by providing a
+  centralized AI-enabled platform where users can securely manage medical history,
+  receive intelligent medicine recommendations, compare medicines, complete online payments,
+  and receive automated order emails. For pharmacy operators, it streamlines operations
+  through RBAC-enabled admin controls, inventory management, image uploads, and order lifecycle
+  tracking—reducing errors and improving scalability.
+</p>
 
-The healthcare and pharmacy industry struggles with fragmented medicine discovery, manual prescription handling, lack of digital medical records, limited personalization, poor inventory visibility, and delayed customer communication. Apna-Meds solves these real-world healthcare problems by offering a centralized, AI-enabled digital platform where users can securely sign up with email verification, store medical history, receive intelligent medicine recommendations based on health conditions, compare medicines, place online payments, and receive automated order confirmation emails. For pharmacy operators, it eliminates manual workflows through a secure admin panel, RBAC-based access, inventory management, image uploads, order lifecycle tracking, and automated notifications—resulting in improved efficiency, reduced errors, and scalable healthcare commerce operations.
+<hr/>
 
-🚀 Key Features (What Recruiters Look For)
-👤 User Features
+<h2>🚀 Core Features</h2>
 
-Email Signup & Verification
+<h3>👤 User Features</h3>
+<ul>
+  <li>Email Signup & Verification</li>
+  <li>Secure Login / Logout (JWT)</li>
+  <li>Change & Reset Password (Email)</li>
+  <li>AI-based medicine suggestions by condition</li>
+  <li>AI-recommended alternatives</li>
+  <li>Add & manage medical history</li>
+  <li>Upload prescriptions & images</li>
+  <li>Search medicines</li>
+  <li>Add reviews & ratings</li>
+  <li>Compare medicines</li>
+  <li>Add to cart & checkout</li>
+  <li>Online payment integration</li>
+  <li>Order tracking</li>
+  <li>Email notification after order</li>
+</ul>
 
-Secure Login / Logout (JWT)
+<h3>🛠️ Admin Features</h3>
+<ul>
+  <li>Admin Dashboard</li>
+  <li>Role-Based Access Control (RBAC)</li>
+  <li>User management</li>
+  <li>Add / Edit / Delete medicines</li>
+  <li>Upload medicine images</li>
+  <li>Inventory & stock management</li>
+  <li>Order status management</li>
+  <li>Review moderation</li>
+</ul>
 
-Change & Reset Password (Email based)
+<hr/>
 
-AI-based medicine recommendation by condition
+<h2>🧠 AI Capabilities</h2>
+<ul>
+  <li>Condition-based medicine recommendations</li>
+  <li>Alternative & substitute suggestions</li>
+  <li>Scalable AI integration layer</li>
+</ul>
 
-AI-recommended alternatives & substitutes
+<hr/>
 
-Add / Edit Medical History
+<h2>🧰 Tech Stack</h2>
 
-Upload prescriptions & medical images
+<h3>Frontend</h3>
+<ul>
+  <li>React.js</li>
+  <li>Redux Toolkit</li>
+  <li>Plain CSS / Styled-Components</li>
+  <li>React Icons</li>
+</ul>
 
-Advanced medicine search
+<h3>Backend</h3>
+<ul>
+  <li>Node.js</li>
+  <li>Express.js</li>
+  <li>MongoDB & Mongoose</li>
+  <li>JWT Authentication</li>
+  <li>Bcrypt</li>
+  <li>Nodemailer</li>
+  <li>AI Recommendation API / Logic</li>
+</ul>
 
-Add reviews & ratings
+<h3>Other</h3>
+<ul>
+  <li>Payment Gateway</li>
+  <li>Git & GitHub</li>
+  <li>Postman</li>
+  <li>Vercel / Render</li>
+</ul>
 
-Compare medicines
+<hr/>
 
-Add to cart & checkout
+<h2>📂 Project Structure</h2>
 
-Online payment integration
-
-Order tracking
-
-Email notification after order
-
-Profile & order history management
-
-🛠️ Admin Features
-
-Secure Admin Panel
-
-Role-Based Access Control (RBAC)
-
-Manage users & permissions
-
-Add / Update / Delete medicines
-
-Upload & manage medicine images
-
-Inventory & stock control
-
-Order management & status updates
-
-Review moderation
-
-Automated email notifications
-
-🧠 AI Capabilities
-
-Condition-based medicine recommendations
-
-Smart medicine alternatives
-
-Scalable AI integration layer
-
-🧰 Tech Stack (Very Important for Recruiters)
-Frontend
-
-React.js
-
-Redux Toolkit
-
-Plain CSS / Styled-Components
-
-React Icons
-
-Backend
-
-Node.js
-
-Express.js
-
-MongoDB & Mongoose
-
-JWT Authentication
-
-Bcrypt (Password Hashing)
-
-Nodemailer (Emails)
-
-AI Recommendation API / Logic
-
-Other
-
-Payment Gateway Integration
-
-Git & GitHub
-
-Postman
-
-Vercel / Render Deployment
-
-📂 Project Architecture
+<pre>
 apna-meds/
 │
 ├── backend/
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
-│   ├── middleware/
-│   ├── utils/
-│   └── server.js
-│
 ├── frontend/
-│   ├── components/
-│   ├── pages/
-│   ├── redux/
-│   ├── styles/
-│   └── App.jsx
-│
 ├── screenshots/
 ├── .env
 ├── package.json
 └── README.md
+</pre>
 
-🔐 Security & Best Practices (Recruiters LOVE this section)
+<hr/>
 
-Email verification during signup
+<h2>🔐 Security & Best Practices</h2>
+<ul>
+  <li>Email verification during signup</li>
+  <li>JWT-based authentication</li>
+  <li>Password hashing with bcrypt</li>
+  <li>RBAC-protected routes</li>
+  <li>Secure image uploads</li>
+  <li>Email-based password recovery</li>
+  <li>Order confirmation emails</li>
+</ul>
 
-JWT authentication (Access & Refresh tokens)
+<hr/>
 
-Password hashing with bcrypt
+<h2>⚙️ Environment Variables</h2>
 
-Role-Based Access Control (RBAC)
-
-Protected admin routes
-
-Secure image uploads
-
-Email-based password recovery
-
-Order confirmation emails
-
-🧪 API Highlights
-Method	Endpoint	Description
-POST	/api/users/register	Signup with email verification
-POST	/api/users/login	Login
-PUT	/api/users/password	Change password
-POST	/api/ai/recommend	AI medicine suggestion
-GET	/api/medicines	Fetch medicines
-POST	/api/reviews	Add review
-POST	/api/orders	Place order
-PUT	/api/orders/:id	Update order (Admin)
-⚙️ Environment Variables
+<pre>
 PORT=5000
 MONGO_URI=your_mongodb_uri
 JWT_SECRET=your_jwt_secret
 EMAIL_USER=your_email
 EMAIL_PASS=your_email_password
-PAYMENT_KEY=your_payment_gateway_key
-AI_API_KEY=your_ai_api_key
+PAYMENT_KEY=your_payment_key
+AI_API_KEY=your_ai_key
+</pre>
 
-▶️ Run Locally
+<hr/>
+
+<h2>▶️ Run Locally</h2>
+
+<pre>
 # Backend
 cd backend
 npm install
@@ -197,24 +181,25 @@ npm run dev
 cd frontend
 npm install
 npm start
+</pre>
 
-📈 Future Enhancements
+<hr/>
 
-Doctor consultation module
+<h2>📈 Future Enhancements</h2>
+<ul>
+  <li>Doctor consultation module</li>
+  <li>Prescription verification</li>
+  <li>Invoice PDF generation</li>
+  <li>Push notifications</li>
+  <li>Mobile app (React Native)</li>
+</ul>
 
-Prescription verification
+<hr/>
 
-Invoice PDF generation
+<h2>👨‍💻 Author</h2>
+<p>
+  <b>Swapnil Ramteke</b><br/>
+  Full-Stack MERN Developer
+</p>
 
-Push notifications
-
-Mobile app (React Native)
-
-Advanced AI health insights
-
-👨‍💻 Author
-
-Swapnil Ramteke
-Full-Stack MERN Developer
-
-⭐ If you find this project useful, please star the repository.
+<p>⭐ If you like this project, please star the repository.</p>
