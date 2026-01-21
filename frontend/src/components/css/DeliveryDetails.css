@@ -13,7 +13,6 @@
   z-index: 999;
   padding: 16px;
   overflow-y: auto;
-  border: 1px solid red;
 }
 
 .slider-panel.open {
@@ -148,7 +147,6 @@ padding: 12px 24px;
 
 @media(max-width:784px){
   .slider-panel{
-    border: 2px solid green;
     width: 100%;
   }
 }
