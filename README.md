@@ -8,13 +8,17 @@
 <hr/>
 
 <h2>📸 Screenshots</h2>
-<p><i>Recruiters always check screenshots first.</i></p>
+
+<h3>🧑‍💼 Login & Signup</h3>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996700/Apna-med-User-profile-pic/apna-meds.vercel.app_signup_o29ye2.png" width="800"/>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996692/Apna-med-User-profile-pic/apna-meds.vercel.app_login_s7oizr.png" width="800"/>
 
 <h3>🏠 Home & Search</h3>
-<img src="./screenshots/home.png" width="800"/>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996644/Apna-med-User-profile-pic/apna-meds.vercel.app_Home_page_nzds14.png" width="800"/>
 
 <h3>🤖 AI Medicine Recommendation</h3>
-<img src="./screenshots/ai-recommendation.png" width="800"/>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996632/Apna-med-User-profile-pic/apna-meds.vercel.app_Ai-sugg_oo5qyj.png" width="800"/>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996698/Apna-med-User-profile-pic/apna-meds.vercel.app_AI-recom_rbr0k7.png" width="800"/>
 
 <h3>🩺 Medical History</h3>
 <img src="./screenshots/medical-history.png" width="800"/>
