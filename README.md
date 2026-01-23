@@ -2,7 +2,7 @@
 
 <p>
   Apna-Meds is a <b>production-ready MERN healthcare e-commerce platform</b>
-  that enables secure medicine ordering, AI-based recommendations, online payments,
+  that enables secure medicine ordering, AI-based Medicine Suggestions, AI-based Medicine recommendations, online payments,
   and pharmacy administration with role-based access control.
 </p>
 
@@ -10,8 +10,8 @@
 
 <h2>🌐 Live Demo</h2>
 <ul>
-  <li><b>Frontend:</b> <a href="#">Add Deployed URL</a></li>
-  <li><b>Backend API:</b> <a href="#">Add API URL</a></li>
+  <li><b>Frontend:</b> <a href="https://apna-meds.vercel.app/">Add Deployed URL</a></li>
+  <li><b>Backend API:</b> <a href="https://apna-meds-backend.vercel.app/">Add API URL</a></li>
 </ul>
 
 <hr/>
