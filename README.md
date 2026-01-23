@@ -10,8 +10,8 @@
 
 <h2>🌐 Live Demo</h2>
 <ul>
-  <li><b>Frontend:</b> <a href="https://apna-meds.vercel.app/">(https://apna-meds.vercel.app/)</a></li>
-  <li><b>Backend API:</b> <a href="https://apna-meds-backend.vercel.app/">(https://apna-meds-backend.vercel.app/)</a></li>
+  <li><b>Frontend:</b> <a href="https://apna-meds.vercel.app/">Apnameds.com</a></li>
+  <li><b>Backend API:</b> <a href="https://apna-meds-backend.vercel.app/">Apnameds.service</a></li>
 </ul>
 
 <hr/>
