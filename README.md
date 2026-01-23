@@ -5,20 +5,6 @@
   that enables secure medicine ordering, AI-based Medicine Suggestions, AI-based Medicine recommendations, online payments,
   and pharmacy administration with role-based access control.
 </p>
-
-<hr/>
-
-<h2>🌐 Live Demo</h2>
-<ul>
-  <li>
-  <b>Frontend:</b>
-  <a href="https://apna-meds.vercel.app/" target="_blank" rel="noopener noreferrer">
-    Apnameds.com
-  </a>
-</li>
-  <li><b>Backend API:</b> <a href="https://apna-meds-backend.vercel.app/">Apnameds.service</a></li>
-</ul>
-
 <hr/>
 
 <h2>📸 Screenshots</h2>
