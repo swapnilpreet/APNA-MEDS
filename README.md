@@ -7,58 +7,20 @@
 </p>
 <hr/>
 
-<h2>📸 Screenshots</h2>
-
-<h3>🧑‍💼 Login & Signup</h3>
-<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996700/Apna-med-User-profile-pic/apna-meds.vercel.app_signup_o29ye2.png" width="800"/>
-<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996692/Apna-med-User-profile-pic/apna-meds.vercel.app_login_s7oizr.png" width="800"/>
-
-<h3>🏠 Home & Search</h3>
-<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996644/Apna-med-User-profile-pic/apna-meds.vercel.app_Home_page_nzds14.png" width="800"/>
-
-<h3>🩺 SingleMedicine</h3>
-<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996678/Apna-med-User-profile-pic/apna-meds.vercel.app_singlepage_zplkto.png" width="800"/>
-
-<h3>🤖 AI Medicine Recommendation</h3>
-<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996632/Apna-med-User-profile-pic/apna-meds.vercel.app_Ai-sugg_oo5qyj.png" width="800"/>
-<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996698/Apna-med-User-profile-pic/apna-meds.vercel.app_AI-recom_rbr0k7.png" width="800"/>
-
-<h3>🩺 Medical History</h3>
-<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996621/Apna-med-User-profile-pic/apna-meds.vercel.app_User_profile_o9wiyp.png" width="800"/>
-
-<h3>🛒 Cart & Checkout</h3>
-<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996680/Apna-med-User-profile-pic/apna-meds.vercel.app_cart_dmv0ta.png" width="800"/>
-<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996670/Apna-med-User-profile-pic/apna-meds.vercel.app_cart_1_bklhs6.png" width="800"/>
-<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996695/Apna-med-User-profile-pic/apna-meds.vercel.app_cart_2_yjwlnb.png" width="800"/>
-
-<h3>💳 Payment</h3>
-<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996571/Apna-med-User-profile-pic/apna-meds.vercel.app_cart_3_q7avpq.png" width="800"/>
-
-<h3>💳 Order Email</h3>
-<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996663/Apna-med-User-profile-pic/order_email_cnd4te.png" width="800"/>
-
-<h3>🧑‍💼 Admin Panel</h3>
-<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1769248155/Apna-med-User-profile-pic/apna-meds.vercel.app_admin_orderstabs_yhgk1w.png" width="800"/>
-<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1769248154/Apna-med-User-profile-pic/apna-meds.vercel.app_admin_medicine_cvuck5.png" width="800"/>
-<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1769248153/Apna-med-User-profile-pic/apna-meds.vercel.app_admin_usertab_ka5t9x.png" width="800"/>
-<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1769248153/Apna-med-User-profile-pic/apna-meds.vercel.app_admin_stack_t2gpad.png" width="800"/>
-<hr/>
-
 <h2>❓ Problem It Solves</h2>
 <p>
   The healthcare and pharmacy industry often suffers from fragmented medicine discovery,
-  manual prescription handling, lack of digital medical records, poor inventory visibility,
-  and limited personalization. <b>Apna-Meds solves these problems</b> by providing a
-  centralized AI-enabled platform where users can securely manage medical history,
+  manual prescription handling, a lack of digital medical records, poor inventory visibility,
+  and limited personalisation. <b>Apna-Meds solves these problems</b> by providing a
+  centralised AI-enabled platform where users can securely manage medical history,
   receive intelligent medicine recommendations, compare medicines, complete online payments,
   and receive automated order emails. For pharmacy operators, it streamlines operations
   through RBAC-enabled admin controls, inventory management, image uploads, and order lifecycle
-  tracking—reducing errors and improving scalability.
+  tracking, reducing errors and improving scalability.
 </p>
-
 <hr/>
 
-<h2>🚀 Core Features</h2>
+<h2>🚀Core Features</h2>
 
 <h3>👤 User Features</h3>
 <ul>
@@ -89,7 +51,6 @@
   <li>Order status management</li>
   <li>Review moderation</li>
 </ul>
-
 <hr/>
 
 <h2>🧠 AI Capabilities</h2>
@@ -98,7 +59,6 @@
   <li>Alternative & substitute suggestions</li>
   <li>Scalable AI integration layer</li>
 </ul>
-
 <hr/>
 
 <h2>🧰 Tech Stack</h2>
@@ -107,7 +67,7 @@
 <ul>
   <li>React.js</li>
   <li>Redux Toolkit</li>
-  <li>Plain CSS / Styled-Components</li>
+  <li>Plain CSS </li>
   <li>React Icons</li>
 </ul>
 
@@ -120,6 +80,7 @@
   <li>Bcrypt</li>
   <li>Nodemailer</li>
   <li>AI Recommendation API / Logic</li>
+  <li>Cloudinary</li>
 </ul>
 
 <h3>Other</h3>
@@ -127,23 +88,8 @@
   <li>Payment Gateway</li>
   <li>Git & GitHub</li>
   <li>Postman</li>
-  <li>Vercel / Render</li>
+  <li>Vercel</li>
 </ul>
-
-<hr/>
-
-<h2>📂 Project Structure</h2>
-
-<pre>
-apna-meds/
-│
-├── backend/
-├── frontend/
-├── screenshots/
-├── .env
-├── package.json
-└── README.md
-</pre>
 
 <hr/>
 
@@ -159,17 +105,13 @@ apna-meds/
 </ul>
 
 <hr/>
-
-<h2>⚙️ Environment Variables</h2>
+<h2>📂 Project Structure</h2>
 
 <pre>
-PORT=5000
-MONGO_URI=your_mongodb_uri
-JWT_SECRET=your_jwt_secret
-EMAIL_USER=your_email
-EMAIL_PASS=your_email_password
-PAYMENT_KEY=your_payment_key
-AI_API_KEY=your_ai_key
+apna-meds/
+│
+├── backend/
+├── frontend/
 </pre>
 
 <hr/>
@@ -180,12 +122,13 @@ AI_API_KEY=your_ai_key
 # Backend
 cd backend
 npm install
-npm run dev
+npm start
 
 # Frontend
 cd frontend
 npm install
-npm start
+npm run dev
+  
 </pre>
 
 <hr/>
@@ -204,7 +147,49 @@ npm start
 <h2>👨‍💻 Author</h2>
 <p>
   <b>Swapnil Ramteke</b><br/>
-  Full-Stack MERN Developer
+  FULL_STACK_ENGINEER
 </p>
 
 <p>⭐ If you like this project, please star the repository.</p>
+
+
+
+<h2>📸 Screenshots</h2>
+
+<h3>🧑‍💼 Login & Signup</h3>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996700/Apna-med-User-profile-pic/apna-meds.vercel.app_signup_o29ye2.png" width="800"/>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996692/Apna-med-User-profile-pic/apna-meds.vercel.app_login_s7oizr.png" width="800"/>
+
+<h3>🏠 Home & Search</h3>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996644/Apna-med-User-profile-pic/apna-meds.vercel.app_Home_page_nzds14.png" width="800"/>
+
+<h3>🩺 SingleMedicine</h3>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996678/Apna-med-User-profile-pic/apna-meds.vercel.app_singlepage_zplkto.png" width="800"/>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1769252070/Apna-med-User-profile-pic/apna-meds.vercel.app_medicine_695fc9396962bbdf57e916f7_dqwlzz.png" width="800"/>
+
+<h3>🤖 AI Medicine Recommendation</h3>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996632/Apna-med-User-profile-pic/apna-meds.vercel.app_Ai-sugg_oo5qyj.png" width="800"/>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996698/Apna-med-User-profile-pic/apna-meds.vercel.app_AI-recom_rbr0k7.png" width="800"/>
+
+<h3>🩺 Medical History</h3>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996621/Apna-med-User-profile-pic/apna-meds.vercel.app_User_profile_o9wiyp.png" width="800"/>
+
+<h3>🛒 Cart & Checkout</h3>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996680/Apna-med-User-profile-pic/apna-meds.vercel.app_cart_dmv0ta.png" width="800"/>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996670/Apna-med-User-profile-pic/apna-meds.vercel.app_cart_1_bklhs6.png" width="800"/>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996695/Apna-med-User-profile-pic/apna-meds.vercel.app_cart_2_yjwlnb.png" width="800"/>
+
+<h3>💳 Payment</h3>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996571/Apna-med-User-profile-pic/apna-meds.vercel.app_cart_3_q7avpq.png" width="800"/>
+
+<h3>💳 Order Email</h3>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996663/Apna-med-User-profile-pic/order_email_cnd4te.png" width="800"/>
+
+<h3>🧑‍💼 Admin Panel</h3>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1769248155/Apna-med-User-profile-pic/apna-meds.vercel.app_admin_orderstabs_yhgk1w.png" width="800"/>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1769248154/Apna-med-User-profile-pic/apna-meds.vercel.app_admin_medicine_cvuck5.png" width="800"/>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1769248153/Apna-med-User-profile-pic/apna-meds.vercel.app_admin_usertab_ka5t9x.png" width="800"/>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1769248153/Apna-med-User-profile-pic/apna-meds.vercel.app_admin_stack_t2gpad.png" width="800"/>
+<hr/>
+
+
