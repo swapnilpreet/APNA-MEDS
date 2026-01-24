@@ -1,3 +1,7 @@
+
+> ⚠️ **Performance Notice:**
+> This project is deployed using **Vercel’s free tier**, which may cause **slower initial loading times** due to server cold starts. Performance will improve significantly on a paid plan.
+
 <h1>🩺 Apna-Meds – AI-Powered Online Medicine & Healthcare Platform</h1>
 
 <p>
