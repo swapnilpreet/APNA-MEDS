@@ -16,22 +16,32 @@
 <h3>🏠 Home & Search</h3>
 <img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996644/Apna-med-User-profile-pic/apna-meds.vercel.app_Home_page_nzds14.png" width="800"/>
 
+<h3>🩺 SingleMedicine</h3>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996678/Apna-med-User-profile-pic/apna-meds.vercel.app_singlepage_zplkto.png" width="800"/>
+
 <h3>🤖 AI Medicine Recommendation</h3>
 <img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996632/Apna-med-User-profile-pic/apna-meds.vercel.app_Ai-sugg_oo5qyj.png" width="800"/>
 <img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996698/Apna-med-User-profile-pic/apna-meds.vercel.app_AI-recom_rbr0k7.png" width="800"/>
 
 <h3>🩺 Medical History</h3>
-<img src="./screenshots/medical-history.png" width="800"/>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996621/Apna-med-User-profile-pic/apna-meds.vercel.app_User_profile_o9wiyp.png" width="800"/>
 
 <h3>🛒 Cart & Checkout</h3>
-<img src="./screenshots/cart.png" width="800"/>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996680/Apna-med-User-profile-pic/apna-meds.vercel.app_cart_dmv0ta.png" width="800"/>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996670/Apna-med-User-profile-pic/apna-meds.vercel.app_cart_1_bklhs6.png" width="800"/>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996695/Apna-med-User-profile-pic/apna-meds.vercel.app_cart_2_yjwlnb.png" width="800"/>
 
 <h3>💳 Payment</h3>
-<img src="./screenshots/payment.png" width="800"/>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996571/Apna-med-User-profile-pic/apna-meds.vercel.app_cart_3_q7avpq.png" width="800"/>
+
+<h3>💳 Order Email</h3>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1768996663/Apna-med-User-profile-pic/order_email_cnd4te.png" width="800"/>
 
 <h3>🧑‍💼 Admin Panel</h3>
-<img src="./screenshots/admin-dashboard.png" width="800"/>
-
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1769248155/Apna-med-User-profile-pic/apna-meds.vercel.app_admin_orderstabs_yhgk1w.png" width="800"/>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1769248154/Apna-med-User-profile-pic/apna-meds.vercel.app_admin_medicine_cvuck5.png" width="800"/>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1769248153/Apna-med-User-profile-pic/apna-meds.vercel.app_admin_usertab_ka5t9x.png" width="800"/>
+<img src="https://res.cloudinary.com/dejqyvuqj/image/upload/v1769248153/Apna-med-User-profile-pic/apna-meds.vercel.app_admin_stack_t2gpad.png" width="800"/>
 <hr/>
 
 <h2>❓ Problem It Solves</h2>
